@@ -1,4 +1,4 @@
-# ⚙️ Python Mastery Flow: High-Performance Engineering
+# ⚙️ Python Mastery Flow: Engenharia de Alta Performance (High-Performance Engineering)
 
 > **"Code is logic refined by mathematical rigor; automation is its autonomous expression."**
 > *"Código é lógica refinada pelo rigor matemático; automação é sua expressão autônoma."*
@@ -46,12 +46,22 @@ Desenvolvimento de automações blindadas que eliminam a dependência de framewo
 
 ---
 
+## 📚 Jornada de Aprendizado (Basics to Advanced)
+
+Este repositório documenta a evolução completa do domínio da linguagem, estruturada em níveis de complexidade:
+
+* **Fundamentos (Basics):** Manipulação rigorosa de tipos, estruturas de dados nativas e controle de fluxo determinístico.
+* **Intermediário (Intermediate):** Manipulação de arquivos (`os`/`sys`), tratamento de exceções robusto e compreensão profunda de escopo.
+* **Avançado (Advanced):** Meta-programação com Decorators, otimização de memória com Generators, Gerenciadores de Contexto e design de sistemas "Zero-Dependency".
+
+---
+
 ## 📐 Metodologia "Vanilla Python" (Anti-Erro)
 
 Para assegurar que nenhum erro de lógica comprometa a automação, adoto um fluxo de desenvolvimento rigoroso baseado em princípios matemáticos:
 
-1. **Zero-Framework Dependency:** Controle total sobre cada linha. Sem vulnerabilidades ocultas ou bugs inesperados em bibliotecas de terceiros.
-2. **Mathematical Validation:** A lógica de cada módulo é validada manualmente antes da implementação. Se o dado não corresponde ao tipo definido, ele é descartado (**Deny by Default**).
+1. **Zero-Framework Dependency:** Controle total sobre cada linha. Sem vulnerabilidades ocultas em bibliotecas de terceiros.
+2. **Mathematical Validation:** A lógica de cada módulo é validada (A4) antes da implementação. Se o dado não corresponde ao modelo, ele é descartado (**Deny by Default**).
 3. **Pure Docs Study:** Implementação baseada 100% na documentação oficial do Python, garantindo código otimizado para o interpretador nativo.
 
 ---
