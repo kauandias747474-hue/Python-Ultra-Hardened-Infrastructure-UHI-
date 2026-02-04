@@ -81,7 +81,7 @@ Para assegurar que nenhum erro de lógica comprometa a automação, adoto um flu
 **Need robust automation or high-reliability backend?**
 
 * 💼 **Freelance Inquiries:** [Consultancy/Email](#)
-* 📊 **Mathematics & Logic:** *All core logic is validated via mathematical models.*
+
 
 ---
 **Developed by Kauan Oliveira - 2026**
