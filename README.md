@@ -1,78 +1,73 @@
-# ⚡ Python Ultra-Hardened Infrastructure (UHI)
+# ⚡ Python Ultra-Hardened Infrastructure (UHI) v2.0
 
-> **"Abstractions are expensive; precision is free."**
-> *"Abstrações custam caro; a precisão é gratuita."*
+> **"Abstractions are expensive; precision is free."** > *"Abstrações custam caro; a precisão é gratuita."*
 
 ![Python](https://img.shields.io/badge/Runtime-CPython_3.12+-3776ab?style=for-the-badge&logo=python&logoColor=white)
 ![Philosophy](https://img.shields.io/badge/Philosophy-Vanilla_Or_Death-black?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Security-Zero_Trust_Logic-red?style=for-the-badge)
-![Stability](https://img.shields.io/badge/Stability-Deterministic_Execution-gold?style=for-the-badge)
+![Memory](https://img.shields.io/badge/Memory-Strict_O(1)-green?style=for-the-badge)
 
 ---
 
-## 🧬 A Filosofia Vanilla-First
+## 🇧🇷 Português (PT-BR)
 
-O **Python Ultra-Hardened Infrastructure (UHI)** não é apenas um repositório; é um manifesto de engenharia. Em um mundo saturado de frameworks pesados e dependências vulneráveis, o UHI utiliza o **Poder Bruto da Standard Library** para alcançar performance de nível sistêmico com overhead próximo de zero.
+### 🧬 O Manifesto Vanilla-First
+O **UHI** não é um framework; é uma redoma de cristal para lógica crítica. Em um mercado saturado de "bloatware" e cadeias de suprimentos vulneráveis, o UHI opera sob a premissa de que **dependência é fraqueza**. Utilizamos o poder bruto da **Standard Library** para atingir performance de nível sistêmico.
 
-Aqui, o código não é apenas escrito; ele é esculpido através de rigor matemático e gestão atômica de recursos.
+### 🏗️ Domínios de Responsabilidade (Arquitetura)
+* ⚙️ **`engine/` (O Núcleo Atômico):** Loops de execução otimizados no **User Space** com o mínimo de trocas de contexto.
+* 🏛️ **`architect/` (Metaprogramação Estrita):** Uso de `typing.Final` e `__slots__` em 100% das estruturas.
+* 🛡️ **`shield/` (Segurança Lógica):** Princípio de **Deny by Default**. Validação *Zero-Copy* sem duplicar objetos na memória.
+* 🌊 **`pipeline/` (Stream Engine):** Processamento massivo via `Generators` com complexidade de memória $O(1)$.
 
-
-
----
-
-## 🏗️ Arquitetura do Ecossistema
-
-Diferente de estruturas convencionais, o UHI é organizado por **Domínios de Responsabilidade**:
-
-### ⚙️ `engine/` (O Núcleo)
-Orquestração de tarefas de alta performance. Implementação de loops de execução que garantem que a lógica de negócio seja processada com prioridade máxima e latência mínima.
-
-### 🏛️ `architect/` (Estrutura e Metaprogramação)
-Onde a linguagem é moldada. Contém:
-* **Advanced Decorators:** Wrappers para telemetria e validação de contratos.
-* **Context Managers:** Garantia de fechamento de recursos mesmo em falhas críticas de hardware.
-
-### 🛡️ `shield/` (Segurança Lógica)
-Implementação do princípio de **Deny by Default**. Todo input é tratado como hostil. Sanitização rigorosa de paths e buffers sem o uso de bibliotecas de terceiros.
-
-### 🌊 `pipeline/` (Stream Processing)
-Processamento de volumes massivos de dados utilizando `Generators` ($O(1)$ de complexidade de memória). Fluxos de dados infinitos que não estouram o Heap da JVM ou do Python Runtime.
-
-
-
----
-
-## 🛠️ Engenharia de Alta Performance (Features)
-
-| Camada | Técnica | Benefício |
+### 🛠️ Engenharia de Alta Performance
+| Vetor | Técnica UHI | Impacto vs. Tradicional |
 | :--- | :--- | :--- |
-| **Memória** | Slots & Generators | Redução de até 60% no uso de RAM em objetos massivos. |
-| **I/O** | Non-blocking Vanilla Ops | Comunicação com o SO sem travar o loop principal. |
-| **Integridade** | Type Hinting + Runtime Check | Erros detectados antes da execução da lógica crítica. |
-| **Audit** | Deterministic Logging | Rastreabilidade total de cada nanossegundo de execução. |
+| **Memória** | `__slots__` + `Generators` | Redução de ~60% no uso de RAM. |
+| **Execução** | Bytecode Optimization | Minimização de `LOAD_GLOBAL`. |
+| **Audit** | Deterministic Logging | Rastreabilidade por nanossegundo. |
 
 ---
 
-## 📐 Metodologia de Desenvolvimento
+## 🇺🇸 English (EN-US)
 
-1. **Análise Estática de Fluxo:** Antes de codar, o fluxo de dados é mapeado para evitar recursão infinita ou vazamento de memória.
-2. **Zero-Dependency Policy:** Se não está na [Doc Oficial do Python](https://docs.python.org/3/), não entra no Core.
-3. **Princípio da Menor Surpresa:** O código é determinístico. Dada a entrada $X$, a saída será sempre $Y$, sem efeitos colaterais ocultos.
+### 🧬 The Vanilla-First Manifesto
+**UHI** is not a framework; it is a crystal vault for critical logic. In a market saturated with "bloatware" and vulnerable supply chains, UHI operates under the premise that **dependency is weakness**. We leverage the raw power of the **Standard Library** to achieve systemic-level performance.
+
+### 🏗️ Domains of Responsibility (Architecture)
+* ⚙️ **`engine/` (The Atomic Core):** Optimized execution loops in **User Space** with minimal context switching.
+* 🏛️ **`architect/` (Strict Metaprogramming):** Systematic use of `typing.Final` and `__slots__` in 100% of data structures.
+* 🛡️ **`shield/` (Logical Security):** **Deny by Default** principle. *Zero-Copy* validation without duplicating memory objects.
+* 🌊 **`pipeline/` (Stream Engine):** Massive data processing via `Generators` with $O(1)$ memory complexity.
+
+### 🛠️ High-Performance Engineering
+| Vector | UHI Technique | Impact vs. Traditional |
+| :--- | :--- | :--- |
+| **Memory** | `__slots__` + `Generators` | ~60% reduction in RAM usage. |
+| **Execution** | Bytecode Optimization | Minimized `LOAD_GLOBAL` calls. |
+| **Audit** | Deterministic Logging | Nanosecond-level traceability. |
 
 ---
 
-## 🧪 Laboratório de Performance (`/lab`)
+## 📐 Metodologia / Methodology
 
-Nesta pasta, mantemos benchmarks que comparam nossas implementações Vanilla com bibliotecas famosas. Provamos que, para tarefas específicas, o **Python Puro bem escrito supera abstrações genéricas.**
+1.  **Imutabilidade / Immutability:** State remains constant after initialization.
+2.  **Zero-Dependency:** No `pip install` allowed in the Core.
+3.  **Determinismo / Determinism:** Input $X$ always yields Output $Y$ with constant $\Delta t$.
+
+---
+
+## 🧪 Laboratório / Lab (`/lab`)
+Provamos que o Python Puro bem escrito supera abstrações genéricas. / *We prove that well-written Pure Python outperforms generic abstractions.*
 
 ---
 
 ## 📩 Conexão / Contact
+*Build for eternity. Run for performance.*
 
-**Procurando sistemas que não quebram e não dependem de atualizações de terceiros?**
-
-* 💼 **Kauan Oliveira - Engenharia de Software de Alta Performance**
 * 🔗 [LinkedIn](#) | ✉️ [Email](#)
 
 ---
-**Build for eternity. Run for performance. 2026.**
+
+### 🛠️ Developed by **Kauan Oliveira**
+**2026 | Built for Excellence.**
