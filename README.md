@@ -1,4 +1,4 @@
-# ⚡ Python Ultra-Hardened Infrastructure (UHI) v2.0
+# ⚡ Python Ultra-Hardened Infrastructure (UHI) 
 
 > **"Abstractions are expensive; precision is free."** > *"Abstrações custam caro; a precisão é gratuita."*
 
