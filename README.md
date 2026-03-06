@@ -3,7 +3,6 @@
 > **"Abstractions are expensive; precision is free."** > *"Abstrações custam caro; a precisão é gratuita."*
 
 ![Python](https://img.shields.io/badge/Runtime-CPython_3.12+-3776ab?style=for-the-badge&logo=python&logoColor=white)
-![Philosophy](https://img.shields.io/badge/Philosophy-Vanilla_Or_Death-black?style=for-the-badge)
 ![Security](https://img.shields.io/badge/Security-Zero_Trust_Logic-red?style=for-the-badge)
 ![Memory](https://img.shields.io/badge/Memory-Strict_O(1)-green?style=for-the-badge)
 
@@ -63,10 +62,8 @@ Provamos que o Python Puro bem escrito supera abstrações genéricas. / *We pro
 ---
 
 ## 📩 Conexão / Contact
-*Build for eternity. Run for performance.*
 
-* 🔗 [LinkedIn](#) | ✉️ [Email](#)
-
+* 🔗 [LinkedIn](www.linkedin.com/in/kauan-oliveira-324264378) | ✉️ [Email](kauandias747474@gmail.com)
 ---
 
 ### 🛠️ Developed by **Kauan Oliveira**
