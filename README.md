@@ -1,82 +1,80 @@
-# ⚡ Python Ultra-Hardened Infrastructure (UHI)
+# ⚡ Python Ultra-High-Performance Infrastructure (UHI)
 
 > **"Abstractions are expensive; precision is free."**
-> *A futilidade do bloatware termina onde a engenharia sistêmica começa.*
+> *Engenharia de sistemas voltada para latência zero e automação determinística.*
 
 ---
 
 ## 🧬 O Manifesto Vanilla-First
 
-O **UHI** não é um framework; é um **Micro-Runtime Determinístico** construído sobre a Standard Library do Python. Em um ecossistema saturado de dependências vulneráveis e abstrações lentas, o UHI opera sob a premissa de que **toda dependência externa é um vetor de falha**.
+O **UHI** é um **Micro-Runtime de Alta Performance** construído puramente sobre a Standard Library do Python. Projetado para cenários onde o overhead de frameworks tradicionais é o gargalo, o UHI foca em **Bytecode Optimization, Memory Layout e Escalonamento em User-Space.**
 
-Nossa engenharia foca no que acontece abaixo do código: **Bytecode Optimization, Memory Layout e Escalonamento em User-Space.**
+Aqui, tratamos o Python como uma linguagem de sistemas, extraindo performance através do controle direto sobre o interpretador CPython.
 
 ---
 
 ## 🏗️ Domínios de Responsabilidade (Arquitetura)
 
 ### ⚙️ `1-engine/` (The Atomic Core)
-O núcleo de execução focado em orquestração de baixo nível.
-* **Green-Thread Scheduling:** Orquestração de tarefas via `generators` puros, eliminando o overhead de trocas de contexto de kernel.
-* **Deterministic Main Loop:** Ciclos de execução com latência controlada e jitter minimizado via `time.perf_counter_ns`.
-* **Graceful Shutdown:** Manipulação atômica de sinais (`SIGTERM/SIGINT`) para garantir integridade de estado.
+O núcleo de orquestração focado em execução de baixo nível.
+* **Green-Thread Scheduling:** Escalonamento via `generators` puros, eliminando o overhead de threads do SO.
+* **Deterministic Scan Cycle:** Loops de automação com tempo de ciclo constante (ex: 10ms) via `time.perf_counter_ns`.
+* **Micro-Tasking:** Divisão de lógica complexa em fatias de tempo para evitar bloqueio do Main Loop.
 
-### 🏛️ `2-architect/` (Strict Metaprogramming)
-Engenharia de dados onde cada byte e ciclo de CPU contam.
-* **Memory Flattening:** Uso sistemático de `__slots__` para anular o overhead de `__dict__` e acelerar o acesso a atributos no interpretador.
-* **Immutable Structures:** Implementação de `typing.Final` e `MappingProxyType` para garantir imutabilidade em tempo de execução.
+### 🏛️ `2-architect/` (Structure & Metaprogramming)
+Engenharia de memória para alta densidade de dados.
+* **Memory Flattening:** Uso de `__slots__` para reduzir a pegada de RAM em até 60% e acelerar o acesso a atributos.
+* **Type-Strict Objects:** Estruturas que utilizam `typing.Final` para otimização de busca no interpretador.
 
-### 🛡️ `3-shield/` (Logical Security & Hardening)
-Segurança baseada no princípio de **Deny by Default**.
-* **Frame Inspection:** Auditoria de stack frames para garantir que apenas funções autorizadas acessem o Core.
-* **Zero-Copy Validation:** Validação de esquemas sem duplicar objetos na RAM, reduzindo a pressão sobre o Garbage Collector.
+### ⚡ `3-strategy/` (Execution Logic)
+Substitui a camada de segurança por **Inteligência de Decisão**.
+* **Branch Optimization:** Lógica de decisão otimizada para minimizar desvios e acelerar o fluxo de execução.
+* **Event-Driven States:** Máquina de estados finitos (FSM) para automação complexa sem condições de corrida.
 
 ### 🌊 `4-pipeline/` (Stream Engine)
-Processamento massivo de dados com pegada de memória constante.
-* **O(1) Memory Complexity:** Fluxos baseados em Iteradores e Generators que processam datasets de escala sem carregar o buffer na memória física.
+Processamento massivo de dados com complexidade de memória $O(1)$.
+* **Lazy Evaluation:** Uso exaustivo de iteradores para processar fluxos de dados infinitos sem estourar o buffer.
 
 ### 🛠️ `5-drivers/` (Low-Level I/O)
-Comunicação direta e eficiente com o ecossistema externo.
-* **Unix Domain Sockets:** IPC de alta performance para intersecção com módulos em C/PHP/Java.
-* **Raw Socket Handling:** Implementações manuais de protocolos sem abstrações pesadas de terceiros.
+Interface direta com o hardware e outros sistemas.
+* **Raw Socket Handling:** Implementação manual de protocolos TCP/UDP para latência mínima.
+* **Unix Domain Sockets:** IPC (Inter-Process Communication) ultra-rápido para integrar com módulos C/Java/PHP.
 
 ### 📊 `6-telemetry/` (Systemic Metrics)
-Monitoramento de precisão nanométrica.
-* **Resource Profiling:** Extração de métricas de *Page Faults* e *Context Switches* via módulo `resource`.
-* **Deterministic Logging:** Rastreabilidade total sem IO bloqueante.
+Monitoramento de performance em tempo real.
+* **Resource Profiling:** Monitoramento de *Context Switches* e *CPU Jitter* via módulo `resource`.
+
+### 🧪 `7-lab/` (Benchmarks)
+Micro-benchmarks comparativos que provam a superioridade do código Vanilla otimizado.
+
+### 💾 `8-storage/` (Atomic Persistence)
+Gerenciamento de dados em disco sem o overhead de DBs genéricos.
+* **Mmap Storage:** Mapeamento de arquivos diretamente na memória para leitura/escrita de alta velocidade.
+* **Atomic Writes:** Garantia de persistência sem corrupção de arquivos em falhas de energia.
+
+### 📜 `9-protocols/` (Binary Logic)
+A gramática binária do sistema.
+* **Bit-Packing:** Uso do módulo `struct` para serialização binária ultra-compacta (substituindo JSON/XML).
+* **Frame Protocol:** Definição manual de cabeçalhos de pacotes para automação industrial.
 
 ---
 
-## 🛠️ High-Performance Python Engineering
+## 🛠️ High-Performance Engineering Table
 
-| Vetor Técnico | Técnica UHI (Advanced Python) | Impacto no Runtime |
+| Vetor Técnico | Técnica UHI | Impacto no Runtime |
 | :--- | :--- | :--- |
-| **Execução** | **Local Variable Caching** | Redução de `LOAD_GLOBAL` para `LOAD_FAST` em loops críticos. |
-| **Memória** | **Manual GC Management** | Desativação seletiva do Garbage Collector em seções de alta frequência. |
-| **I/O** | **Non-Blocking Selectors** | Multiplexação de eventos nativa via módulo `selectors`. |
-| **Audit** | **Nanosecond Traceability** | Medição de latência real ignorando o overhead do interpretador. |
-
----
-
-## 📐 Metodologia / Methodology
-
-1.  **Imutabilidade Estrita:** O estado permanece constante após a inicialização.
-2.  **Zero-Dependency Policy:** `pip install` é proibido no Core. Utilizamos o poder bruto da Standard Lib.
-3.  **Determinismo:** Input `X` sempre gera Output `Y` com variação de tempo `Δt` controlada.
-
----
-
-## 🧪 Laboratório / Lab (`/lab`)
-Espaço reservado para micro-benchmarks. Provamos que o Python Puro, quando domado em nível de Bytecode, supera abstrações genéricas em eficiência e resiliência.
+| **Execução** | **Local Variable Caching** | Redução de `LOAD_GLOBAL` para `LOAD_FAST`. |
+| **Memória** | **Manual GC Control** | Prevenção de pauses "Stop-the-World" durante ciclos críticos. |
+| **I/O** | **Non-Blocking Selectors** | Multiplexação de eventos nativa via `selectors`. |
+| **Data** | **Binary Structuring** | Redução drástica no tempo de serialização de dados. |
 
 ---
 
 ## 📩 Conexão / Contact
 
 **Kauan Oliveira**
-*Self-Taught Software & Security Engineer*
+*Software & Automation Engineer*
 
 🔗 [LinkedIn](https://www.linkedin.com/in/kauan-oliveira-324264378/) | ✉️ [Email](mailto:kauandias747474@gmail.com) | 👾 Discord: `@knoliveira7774`
 
 > **2026 | Built for Excellence.**
-> *"Precision is not an act, it is a habit."*
