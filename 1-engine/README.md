@@ -1,10 +1,8 @@
-# ⚙️ Engine Layer
+# ⚙️ 1-Engine: User-Space Orchestration
 
-Esta camada contém o **Núcleo de Execução** do sistema. Aqui reside a inteligência que orquestra o ciclo de vida da aplicação.
+O núcleo atômico do sistema. Responsável pelo escalonamento determinístico de tarefas.
 
-### Foco Técnico:
-* **Lifecycle Management:** Controle de inicialização, execução e encerramento (Graceful Shutdown).
-* **Task Scheduling:** Orquestração de tarefas determinísticas sem dependência de bibliotecas externas de fila.
-* **Main Loop:** O coração pulsante da automação, otimizado para baixa latência.
-
-> **Princípio:** O motor deve ser independente dos dados que processa.
+### ⚡ Demonstração: The Nano-Scheduler
+* **Mechanism:** Escalonamento via `generators` (corrotinas puras) utilizando `yield`.
+* **Priority:** Fila de prioridade $O(\log n)$ via `heapq`.
+* **Optimization:** Injeção de `time.perf_counter_ns` em escopo local (`LOAD_FAST`) para redução de jitter.
