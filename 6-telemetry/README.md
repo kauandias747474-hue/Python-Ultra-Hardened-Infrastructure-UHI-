@@ -1,10 +1,7 @@
-# 📊 Telemetry Layer
+# 📊 6-Telemetry: Systemic Observability
 
-Onde a performance é medida e a visibilidade é garantida. Sem telemetria, não há otimização.
+Monitoramento de performance em nível de interpretador e hardware.
 
-### Métricas:
-* **Deterministic Logging:** Registros com timestamp de alta precisão.
-* **Execution Profiling:** Medição de tempo de execução por micro-tarefa.
-* **Error Tracking:** Captura de stack traces limpos e informativos para debugging rápido.
-
-> **Princípio:** O que não pode ser medido, não pode ser gerenciado.
+### 📈 Demonstração: The Context-Switch Counter
+* **Metrics:** Captura de `ru_nvcsw` e `ru_nivcsw` via módulo `resource`.
+* **Goal:** Identificar picos de latência causados por interrupções do Sistema Operacional.
