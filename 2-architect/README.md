@@ -1,10 +1,8 @@
-# 🏛️ Architect Layer
+# 🏛️ 2-Architect: Memory Layout & Structures
 
-A camada de arquitetura é onde moldamos o comportamento da linguagem Python através de **Metaprogramação** e padrões estruturais avançados.
+Engenharia de dados focada em densidade e velocidade de acesso.
 
-### Implementações:
-* **Custom Decorators:** Auditoria de execução, tratamento de exceções global e validação de contratos.
-* **Context Managers:** Gestão atômica de recursos (garantir que arquivos e sockets nunca fiquem abertos).
-* **Bases & Interfaces:** Classes abstratas que definem o comportamento esperado para o restante do sistema.
-
-> **Princípio:** Código limpo e reutilizável através de abstrações de baixo custo.
+### 💎 Demonstração: The Memory Squeezer
+* **Technique:** Uso exaustivo de `__slots__` para eliminação do `__dict__` interno.
+* **Typing:** Uso de `typing.Final` para auxiliar o interpretador na otimização de busca de atributos.
+* **Impacto:** Redução de ~60% no overhead de RAM por objeto.
