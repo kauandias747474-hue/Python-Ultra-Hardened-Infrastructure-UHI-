@@ -1,4 +1,4 @@
-# 🤖 3-Strategy: Deterministic Execution Logic
+#  3-Strategy: Deterministic Execution Logic
 
 
 [PT-BR] Camada de decisão baseada em Estados Finitos (FSM) para garantir fluxo livre de race conditions.
