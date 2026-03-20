@@ -1,41 +1,33 @@
 # 🚀 10-Apps: High-Performance Implementations
 
-[PT-BR]
-Casos de uso reais utilizando a arquitetura completa. Este módulo serve como a camada de integração, demonstrando como os pilares de baixo nível sustentam aplicações robustas, escaláveis e de alta performance.
-
-[EN]
-Real-world use cases using the full architecture. This module serves as the integration layer, demonstrating how low-level pillars support robust, scalable, and high-performance applications.
+[PT-BR] Camada de integração final. Este módulo demonstra como os pilares de baixo nível (UHI) sustentam aplicações robustas, escaláveis e de missão crítica em cenários reais.
+[EN] Final integration layer. This module demonstrates how low-level pillars (UHI) support robust, scalable, and mission-critical applications in real-world scenarios.
 
 ---
 
-## 🚀 Exemplos / Examples
+##  Lógica das Aplicações / Application Logic
 
-As implementações abaixo provam a versatilidade do ecossistema em diferentes domínios industriais.
+1.  **Fast Scraper (Data Ingestion):**
+    * [PT] Extração massiva de dados utilizando **uvloop** e **4-Pipeline**. Foco em I/O não-bloqueante e pegada de memória estável (O(1)).
+    * [EN] Massive data extraction using **uvloop** and **4-Pipeline**. Focus on non-blocking I/O and stable memory footprint (O(1)).
+2.  **Industrial Bot (Real-Time Control):**
+    * [PT] Automação via **3-Strategy** (Máquina de Estados) e **1-Engine** (Nano-Scheduler) para controle determinístico de hardware.
+    * [EN] Automation via **3-Strategy** (State Machine) and **1-Engine** (Nano-Scheduler) for deterministic hardware control.
 
-### 1. Fast Scraper (Data Ingestion)
-* **[PT-BR] Stack:** Extração massiva de dados utilizando **5-Drivers** (I/O otimizado) e **4-Pipeline** (Processamento em fluxo). 
-* **[PT-BR] Diferencial:** Capaz de processar milhares de requisições/segundo com pegada de memória estável e zero bloqueio de IO.
-* **[EN] Stack:** Massive data extraction using **5-Drivers** (optimized I/O) and **4-Pipeline** (stream processing).
-* **[EN] Edge:** Capable of processing thousands of requests/second with a stable memory footprint and zero IO blocking.
+##  O que este código prova? / What does this code prove?
 
-### 2. Industrial Bot (Real-Time Control)
-* **[PT-BR] Stack:** Automação via **3-Strategy** (Máquina de Estados) e **1-Engine** (Nano-Scheduler).
-* **[PT-BR] Diferencial:** Controle determinístico de hardware com precisão de microssegundos, garantindo que protocolos de segurança sejam executados sem atrasos.
-* **[EN] Stack:** Automation via **3-Strategy** (State Machine) and **1-Engine** (Nano-Scheduler).
-* **[EN] Edge:** Deterministic hardware control with microsecond precision, ensuring safety protocols are executed without delays.
+* **Architectural Synergy:** [PT] Como o **8-Storage** (Mmap) alimenta o **4-Pipeline** para buscas ultra-rápidas. [EN] How **8-Storage** (Mmap) feeds **4-Pipeline** for ultra-fast searches.
+* **Resource Orchestration:** [PT] Uso da **6-Telemetry** para ajustar o comportamento do motor dinamicamente sob carga. [EN] Using **6-Telemetry** to dynamically adjust engine behavior under load.
+* **End-to-End Efficiency:** [PT] Validação de que protocolos binários (**9-Protocols**) reduzem drasticamente o uso de CPU. [EN] Validating that binary protocols (**9-Protocols**) drastically reduce CPU usage.
 
 
 
 ---
 
-## 🔍 O Código Demonstrativo / The Demo Code
+##  Stack de Integração / Integration Stack
 
-### [PT-BR] O que este código prova?
-1. **Architectural Synergy:** Mostra como o **8-Storage** (Mmap) pode alimentar o **4-Pipeline** para criar um sistema de busca ultra-rápido.
-2. **Resource Orchestration:** Demonstra o uso da **6-Telemetry** para ajustar o comportamento do **1-Engine** dinamicamente sob carga pesada.
-3. **End-to-End Efficiency:** Valida que o uso de **9-Protocols** (Binário) reduz a carga de CPU nos Apps de processamento distribuído.
-
-### [EN] What does this code prove?
-1. **Architectural Synergy:** Shows how **8-Storage** (Mmap) can feed the **4-Pipeline** to create an ultra-fast search system.
-2. **Resource Orchestration:** Demonstrates using **6-Telemetry** to dynamically adjust **1-Engine** behavior under heavy load.
-3. **End-to-End Efficiency:** Validates that using **9-Protocols** (Binary) reduces CPU load in distributed processing Apps.
+| App | Módulos UHI Utilizados | Diferencial Técnico |
+| :--- | :--- | :--- |
+| **Scraper** | `5-Drivers`, `4-Pipeline`, `0-Bootstrap` | Zero I/O Blocking & Memory Ceiling. |
+| **Bot** | `1-Engine`, `3-Strategy`, `6-Telemetry` | Microssecond Precision & Safety First. |
+| **Search Engine** | `8-Storage`, `2-Architect`, `9-Protocols` | Instant Loading & Binary Search Speed. |
