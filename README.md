@@ -1,72 +1,76 @@
-# ⚡ Python Ultra-High-Performance Infrastructure (UHI)
+#  Python Ultra-High-Performance Infrastructure (UHI)
+# Infraestrutura Python de Ultra Alta Performance (UHI)
 
 > **"Abstractions are expensive; precision is free."**
+> *Systems engineering focused on zero latency and deterministic automation.*
 > *Engenharia de sistemas voltada para latência zero e automação determinística.*
 
 ---
 
-## 🧬 O Manifesto Vanilla-First
+## 🧬 The Vanilla-First Manifesto / O Manifesto Vanilla-First
 
-O **UHI** é um **Micro-Runtime de Alta Performance** construído puramente sobre a Standard Library do Python. Projetado para cenários onde o overhead de frameworks tradicionais é o gargalo, o UHI foca em **Bytecode Optimization, Memory Layout e Escalonamento em User-Space.**
+[PT-BR] O **UHI** é um **Micro-Runtime de Alta Performance** construído sobre a Standard Library do Python, agora potencializado por integrações cirúrgicas de frameworks modernas em Rust/C. Projetado para cenários onde o overhead de frameworks tradicionais é o gargalo, o UHI foca em **Bytecode Optimization, Zero-Copy Memory e Escalonamento em User-Space.**
 
-Aqui, tratamos o Python como uma linguagem de sistemas, extraindo performance através do controle direto sobre o interpretador CPython.
+[EN] **UHI** is a **High-Performance Micro-Runtime** built on Python's Standard Library, now enhanced by surgical integrations of modern Rust/C-backed frameworks. Designed for scenarios where traditional framework overhead is the bottleneck, UHI focuses on **Bytecode Optimization, Zero-Copy Memory, and User-Space Scheduling.**
 
 ---
 
-## 🏗️ Domínios de Responsabilidade (Arquitetura)
+## 🏗️ Architecture Domains / Domínios de Responsabilidade
 
-### ⚙️ `1-engine/` (The Atomic Core)
-O núcleo de orquestração focado em execução de baixo nível.
-* **Green-Thread Scheduling:** Escalonamento via `generators` puros, eliminando o overhead de threads do SO.
-* **Deterministic Scan Cycle:** Loops de automação com tempo de ciclo constante (ex: 10ms) via `time.perf_counter_ns`.
-* **Micro-Tasking:** Divisão de lógica complexa em fatias de tempo para evitar bloqueio do Main Loop.
+### ⚙️ `0-Bootstrap/` (The Gatekeeper)
+* **PT:** Validação atômica de ambiente via **Pydantic V2** e **Dynaconf**. Injeção de dependências e travas de Kernel (`resource`).
+* **EN:** Atomic environment validation via **Pydantic V2** and **Dynaconf**. Dependency injection and Kernel resource limiting (`resource`).
 
-### 🏛️ `2-architect/` (Structure & Metaprogramming)
-Engenharia de memória para alta densidade de dados.
-* **Memory Flattening:** Uso de `__slots__` para reduzir a pegada de RAM em até 60% e acelerar o acesso a atributos.
-* **Type-Strict Objects:** Estruturas que utilizam `typing.Final` para otimização de busca no interpretador.
+### 🚀 `1-Engine/` (The Atomic Core)
+* **PT:** **Nano-Scheduler** baseado em geradores. Escalonamento determinístico com ciclos de 10ms via `time.perf_counter_ns`.
+* **EN:** Generator-based **Nano-Scheduler**. Deterministic scheduling with 10ms cycles via `time.perf_counter_ns`.
 
-### ⚡ `3-strategy/` (Execution Logic)
-Substitui a camada de segurança por **Inteligência de Decisão**.
-* **Branch Optimization:** Lógica de decisão otimizada para minimizar desvios e acelerar o fluxo de execução.
-* **Event-Driven States:** Máquina de estados finitos (FSM) para automação complexa sem condições de corrida.
+### 🏛️ `2-Architect/` (Memory Layout)
+* **PT:** Densidade de memória via `__slots__` e objetos **Type-Strict**. Redução de até 60% no consumo de RAM.
+* **EN:** Memory density via `__slots__` and **Type-Strict** objects. Up to 60% reduction in RAM consumption.
 
-### 🌊 `4-pipeline/` (Stream Engine)
-Processamento massivo de dados com complexidade de memória $O(1)$.
-* **Lazy Evaluation:** Uso exaustivo de iteradores para processar fluxos de dados infinitos sem estourar o buffer.
+### 🤖 `3-Strategy/` (Execution Logic)
+* **PT:** Máquinas de Estados Finitos (**FSM**) via biblioteca `transitions` para fluxos de decisão sem race conditions.
+* **EN:** Finite State Machines (**FSM**) via `transitions` library for race-condition-free decision flows.
 
-### 🛠️ `5-drivers/` (Low-Level I/O)
-Interface direta com o hardware e outros sistemas.
-* **Raw Socket Handling:** Implementação manual de protocolos TCP/UDP para latência mínima.
-* **Unix Domain Sockets:** IPC (Inter-Process Communication) ultra-rápido para integrar com módulos C/Java/PHP.
+### 🌊 `4-Pipeline/` (Stream Engine)
+* **PT:** Processamento massivo $O(1)$ com **Lazy Evaluation** e integração **Polars** (Rust-engine) para ETL de alta velocidade.
+* **EN:** $O(1)$ massive processing with **Lazy Evaluation** and **Polars** (Rust-engine) integration for high-speed ETL.
 
-### 📊 `6-telemetry/` (Systemic Metrics)
-Monitoramento de performance em tempo real.
-* **Resource Profiling:** Monitoramento de *Context Switches* e *CPU Jitter* via módulo `resource`.
+### 🔗 `5-Drivers/` (Low-Level I/O)
+* **PT:** Comunicação ultra-rápida via **Unix Domain Sockets** e **ZeroMQ**. Performance de I/O via **uvloop**.
+* **EN:** Ultra-fast communication via **Unix Domain Sockets** and **ZeroMQ**. I/O performance via **uvloop**.
 
-### 🧪 `7-lab/` (Benchmarks)
-Micro-benchmarks comparativos que provam a superioridade do código Vanilla otimizado.
+### 📈 `6-Telemetry/` & `7-Lab/` (Observability)
+* **PT:** Monitoramento de *Context Switches* e *CPU Jitter*. Benchmarks científicos via **VizTracer** e **Prometheus**.
+* **EN:** Monitoring of *Context Switches* and *CPU Jitter*. Scientific benchmarks via **VizTracer** and **Prometheus**.
 
-### 💾 `8-storage/` (Atomic Persistence)
-Gerenciamento de dados em disco sem o overhead de DBs genéricos.
-* **Mmap Storage:** Mapeamento de arquivos diretamente na memória para leitura/escrita de alta velocidade.
-* **Atomic Writes:** Garantia de persistência sem corrupção de arquivos em falhas de energia.
+### 💾 `8-Storage/` & `9-Protocols/` (Persistence)
+* **PT:** **Mmap Storage** (Zero-copy) e serialização binária via **Struct** e **MessagePack**.
+* **EN:** **Mmap Storage** (Zero-copy) and binary serialization via **Struct** and **MessagePack**.
 
-### 📜 `9-protocols/` (Binary Logic)
-A gramática binária do sistema.
-* **Bit-Packing:** Uso do módulo `struct` para serialização binária ultra-compacta (substituindo JSON/XML).
-* **Frame Protocol:** Definição manual de cabeçalhos de pacotes para automação industrial.
+### 🚀 `10-Apps/` (Integration Layer)
+* **PT:** Casos de uso reais: **Fast Scraper**, **Industrial Bot** e **Smart Search** conectados via memória compartilhada.
+* **EN:** Real-world use cases: **Fast Scraper**, **Industrial Bot**, and **Smart Search** connected via shared memory.
 
 ---
 
 ## 🛠️ High-Performance Engineering Table
 
-| Vetor Técnico | Técnica UHI | Impacto no Runtime |
+| Vector / Vetor | Technique / Técnica | Impact / Impacto |
 | :--- | :--- | :--- |
-| **Execução** | **Local Variable Caching** | Redução de `LOAD_GLOBAL` para `LOAD_FAST`. |
-| **Memória** | **Manual GC Control** | Prevenção de pauses "Stop-the-World" durante ciclos críticos. |
-| **I/O** | **Non-Blocking Selectors** | Multiplexação de eventos nativa via `selectors`. |
-| **Data** | **Binary Structuring** | Redução drástica no tempo de serialização de dados. |
+| **Execution** | **uvloop + Nanoscheduler** | Lower Latency / Menor Latência |
+| **Memory** | **__slots__ + mmap** | Zero-Copy / Pegada de RAM O(1) |
+| **Validation** | **Pydantic (Rust Core)** | Type Safety @ C-Speed |
+| **I/O** | **Unix Sockets + Msgpack** | Wire-speed Data Transfer |
+
+---
+
+## 🔍 Why UHI? / Por que o UHI?
+
+[PT-BR] Este repositório prova que o Python, quando tratado como linguagem de sistemas e despojado de abstrações desnecessárias, é capaz de gerenciar cargas industriais e automação de tempo real com precisão de microssegundos. **Sem faculdade, sem cursos técnicos: apenas engenharia pura guiada por documentação e mentoria de IA.**
+
+[EN] This repository proves that Python, when treated as a systems language and stripped of unnecessary abstractions, is capable of managing industrial loads and real-time automation with microsecond precision. **No college, no technical courses: just pure engineering guided by documentation and AI mentorship.**
 
 ---
 
