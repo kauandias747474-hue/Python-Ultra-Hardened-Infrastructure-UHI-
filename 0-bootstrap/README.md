@@ -1,5 +1,4 @@
 #  0-Bootstrap: System Sanity & Initialization
-#  0-Bootstrap: Sanidade do Sistema & Inicialização
 
 [PT-BR] Responsável pela **Injeção de Dependências de Ambiente** e validação crítica de pré-requisitos. Esta camada atua como o **Gatekeeper** do ecossistema UHI, garantindo que o Kernel só seja instanciado em um ambiente validado.
 
