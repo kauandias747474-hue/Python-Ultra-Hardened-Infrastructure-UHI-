@@ -1,4 +1,4 @@
-# 🚀 10-Apps: High-Performance Implementations
+#  10-Apps: High-Performance Implementations
 
 [PT-BR] Camada de integração final do ecossistema UHI. Este módulo demonstra como os pilares de baixo nível (Kernel, Memória e Protocolos) sustentam aplicações de missão crítica com latência previsível e eficiência extrema.
 
