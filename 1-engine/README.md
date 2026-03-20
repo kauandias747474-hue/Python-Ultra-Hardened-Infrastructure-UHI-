@@ -1,4 +1,4 @@
-# ⚙️ 1-Engine: User-Space Orchestration
+#  1-Engine: User-Space Orchestration
 
 [PT-BR]
 O **Nano-Scheduler** é uma demonstração técnica de um motor de execução determinística em Python. O objetivo deste código é provar que o escalonamento em *User-Space*, quando otimizado ao nível de bytecode, pode superar o `asyncio` padrão em cenários de baixa latência e alta precisão.
@@ -8,7 +8,7 @@ The **Nano-Scheduler** is a technical demonstration of a deterministic execution
 
 ---
 
-## ⚡ A Tese / The Thesis
+##  A Tese / The Thesis
 
 ### [PT-BR] Otimização de Baixo Nível
 * **Mecanismo:** Corrotinas puras via `yield`. Sem o overhead de objetos `Task` ou `Future`, reduzindo drasticamente o consumo de memória e pressão do GC.
@@ -22,7 +22,7 @@ The **Nano-Scheduler** is a technical demonstration of a deterministic execution
 
 ---
 
-## 🔍 O Código Demonstrativo / The Demo Code
+##  O Código Demonstrativo / The Demo Code
 
 ### [PT-BR]
 O código demonstra três conceitos avançados de engenharia:
@@ -38,12 +38,3 @@ The code demonstrates three advanced engineering concepts:
 
 ---
 
-## 🚀 Impacto / Relevance
-
-| [PT-BR] Público | [EN] Audience | Benefício / Benefit |
-| :--- | :--- | :--- |
-| **Recrutadores** | **Recruiters** | Domínio de CS Fundamentals & Opcodes. |
-| **Clientes** | **Clients** | Sistemas ultra-eficientes e previsíveis. |
-| **Devs** | **Devs** | Alternativa leve ao overhead do `asyncio`. |
-
----
