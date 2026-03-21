@@ -31,13 +31,13 @@ Para manter o design **Vanilla-First** e o desacoplamento, a conexão entre os a
 
 ## 🏗️ Estrutura de Código & Conceitos Aplicados
 
-#### **`bootstrap.py` (Fluxo de Execução - 100+ Linhas)**
+#### **`bootstrap.py` (Fluxo de Execução )**
 * **Conceitos de Python Aplicados:**
     * **Context Managers (`__enter__`/`__exit__`):** Proteção de recursos do SO.
     * **Custom Exception Hierarchy:** Erros granulares para falhas de hardware vs falhas de software.
     * **Type Guarding:** Verificação de tipos em runtime para estados críticos.
 
-#### **`container.py` (Matriz de Dependências - 100+ Linhas)**
+#### **`container.py` (Matriz de Dependências )**
 * **Conceitos de Programação Aplicados:**
     * **Inversion of Control (IoC):** Centralização da criação de objetos.
     * **Singleton Pattern:** Garantia de que recursos globais não sejam duplicados.
