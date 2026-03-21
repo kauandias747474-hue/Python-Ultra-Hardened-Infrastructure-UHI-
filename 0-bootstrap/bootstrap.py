@@ -41,7 +41,7 @@ def apply_kernel_hardening():
     """
     if resource is not None and sys.platform != "win32":
         try:
-            # Limite de 1GB de RAM Virtual
+
             ram_limit = 1024 * 1024 * 1024
             resource.setrlimit(resource.RLIMIT_AS, (ram_limit, ram_limit))
             logger.success("UHI Hardening: Limites de Kernel (resource) aplicados.")
@@ -79,8 +79,8 @@ def bootstrap_integrity() -> memoryview:
         sys.exit(1)
 
 if __name__ == "__main__":
-    # O Handshake atômico acontece aqui
+    
     engine_memory = bootstrap_integrity()
     
-    # Confirmação final de prontidão
+ 
     logger.info(f"Bootstrap Finalizado. Memória disponível: {len(engine_memory)} bytes.")
