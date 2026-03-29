@@ -3,12 +3,11 @@
 ### [PT-BR]
 Camada de decisão baseada em Máquinas de Estados Finitos (FSM) e Mutex Locks para garantir um fluxo de execução determinístico, livre de *race conditions* e resiliente a interrupções do Sistema Operacional.
 
-**Nota Importante:** Este repositório é uma **demonstração técnica de conceitos aplicados**. O código atual serve como Prova de Conceito (PoC) para validar a arquitetura lógica de um motor forense. No momento, considero que o código ainda necessita de refatorações profundas; ele passará por revisões constantes para atingir o padrão de "blindagem" (hardening) planejado no meu Plano de Soberania.
-
+**Nota Importante:** Este repositório é uma **demonstração técnica de conceitos aplicados**. O código atual serve como Prova de Conceito (PoC) para validar a arquitetura lógica de um motor forense. No momento, considero que o código ainda necessita de refatorações profundas; ele passará por revisões constantes para atingir o padrão de "blindagem" (hardening).
 ### [EN]
 Decision layer based on Finite State Machines (FSM) and Mutex Locks to ensure deterministic execution flow, free of race conditions, and resilient to Operating System interrupts.
 
-**Important Note:** This repository is a **technical demonstration of applied concepts**. The current code serves as a Proof of Concept (PoC) to validate the logical architecture of a forensic engine. At the moment, I consider the code in need of deep refactoring; it will undergo constant revisions to reach the "hardening" standard planned in my Sovereignty Plan.
+**Important Note:** This repository is a **technical demonstration of applied concepts**. The current code serves as a Proof of Concept (PoC) to validate the logical architecture of a forensic engine. At the moment, I consider the code in need of deep refactoring; it will undergo constant revisions to reach the "hardening" .
 
 ---
 
