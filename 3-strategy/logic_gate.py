@@ -15,7 +15,7 @@ class LogicGate:
             thread_name = threading.current_thread().name
             print(f"[{thread_name}] Lock adquirido. Movendo: {self._state} -> {next_state}")
             
-            # Simula latência de processamento de Kernel
+
             time.sleep(0.2) 
             
             self._state = next_state
