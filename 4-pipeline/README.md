@@ -39,7 +39,6 @@ The project follows **Clean Architecture** and **Separation of Concerns** princi
 * **Memory Management:** [PT] Garantia de complexidade de espaço O(1) para processar datasets maiores que a memória RAM disponível. [EN] Guarantee of O(1) space complexity to process datasets larger than available RAM.
 
 ---
-
 ##  Estrutura de Pastas / Folder Structure
 
 /
@@ -47,6 +46,7 @@ The project follows **Clean Architecture** and **Separation of Concerns** princi
 ├── polars_etl.py        # Motor de Processamento (Polars Engine)
 ├── stream_processor.py  # Gerador de Dados (Data Stream)
 ├── .gitignore           # Exclusão de cache e logs
+└── logs/                # Auditoria e Debug logs
 
 ---
 
