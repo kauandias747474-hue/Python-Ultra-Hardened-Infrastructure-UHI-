@@ -1,0 +1,17 @@
+2026-03-30 12:39:54,515 | INFO     | Iniciando motor de processamento...
+2026-03-30 12:39:54,537 | INFO     | Lote processado no registro 4999
+2026-03-30 12:39:54,551 | INFO     | Lote processado no registro 9999
+2026-03-30 12:39:54,567 | INFO     | Lote processado no registro 14999
+2026-03-30 12:39:54,568 | INFO     | Pipeline encerrado.
+2026-03-30 12:42:20,674 | INFO     | Iniciando motor de processamento...
+2026-03-30 12:42:20,737 | INFO     | Lote processado no registro 4999
+2026-03-30 12:42:20,756 | INFO     | Lote processado no registro 9999
+2026-03-30 12:42:20,771 | INFO     | Lote processado no registro 14999
+2026-03-30 12:42:20,772 | INFO     | Pipeline encerrado.
+2026-03-30 12:43:28,721 | INFO     | stream_processor.py:84 | Sistema Iniciado. Preparando motor Polars...
+2026-03-30 12:43:28,722 | INFO     | stream_processor.py:90 | Retomando do registro: 0
+2026-03-30 12:43:28,773 | INFO     | stream_processor.py:104 | Lote finalizado no registro 4999
+2026-03-30 12:43:28,789 | INFO     | stream_processor.py:104 | Lote finalizado no registro 9999
+2026-03-30 12:43:28,805 | INFO     | stream_processor.py:104 | Lote finalizado no registro 14999
+2026-03-30 12:43:28,820 | INFO     | stream_processor.py:104 | Lote finalizado no registro 19999
+2026-03-30 12:43:28,821 | INFO     | stream_processor.py:120 | Pipeline encerrado com segurança.
