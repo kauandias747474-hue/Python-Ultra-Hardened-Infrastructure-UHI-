@@ -45,6 +45,13 @@ This module demonstrates an ultra-low latency inter-process communication (IPC) 
 
 ---
 
+### [PT-BR] Por que este projeto?
+*O que torna este projeto fascinante é a saída do "feijão com arroz" do desenvolvimento de aplicações comuns. Em vez de depender de APIs lentas ou arquivos de texto, decidi explorar o limite do hardware. A ideia de tratar a RAM como uma mesa compartilhada e controlar manualmente em qual núcleo da CPU o código roda transforma o software em uma ferramenta de precisão. É a aplicação real de conceitos de Engenharia de Sistemas para resolver o problema da latência de forma bruta e elegante.*
+
+### [EN] Why this project?
+*What makes this project fascinating is moving beyond the "bread and butter" of standard application development. Instead of relying on slow APIs or text files, I decided to push the hardware to its limits. The idea of treating RAM as a shared table and manually controlling which CPU core the code runs on turns software into a precision tool. It is the real-world application of Systems Engineering concepts to solve latency problems in a raw and elegant way.*
+
+---
 ##  Requisitos / Requirements
 ```powershell
 pip install pyzmq tornado psutil
