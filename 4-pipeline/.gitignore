@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Logs e Dados Temporários
+logs/*.log
+*.csv
+*.json
+!example.json
+
+# IDEs (VS Code / PyCharm)
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Ambiente (Segurança)
+.env
+.flaskenv
