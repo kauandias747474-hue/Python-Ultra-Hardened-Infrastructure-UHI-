@@ -40,16 +40,6 @@ The project follows **Clean Architecture** and **Separation of Concerns** princi
 
 ---
 
-##  Estrutura de Pastas / Folder Structure
-
-/
-├── main.py              # Orquestrador do Pipeline (Orchestrator)
-├── polars_etl.py        # Motor de Processamento (Polars Engine)
-├── stream_processor.py  # Gerador de Dados (Data Stream)
-├── .gitignore           # Exclusão de cache e logs
-└── logs/                # Auditoria e Debug logs
-
----
 
 ##  Aviso Importante / Important Notice
 
@@ -66,3 +56,15 @@ pip install polars pydantic
 
 2. **Execute o pipeline / Run the pipeline:**
 python main.py
+
+###  Estrutura de Pastas / Folder Structure
+
+```text
+/
+├── main.py              # Orquestrador do Pipeline (Orchestrator)
+├── polars_etl.py        # Motor de Processamento (Polars Engine)
+├── stream_processor.py  # Gerador de Dados (Data Stream)
+├── .gitignore           # Exclusão de cache e logs
+└── logs/                # Auditoria e Debug logs
+
+
