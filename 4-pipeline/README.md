@@ -1,4 +1,4 @@
-#  4-Pipeline O(1) Stream Engine
+#  4-Pipeline Stream Engine
 
 **[PT-BR]** Pipeline de dados de alta performance projetado para processar volumes massivos com uso constante de memória (O(1)) e validação rigorosa via Pydantic e Polars (Rust-based).
 
@@ -50,6 +50,7 @@ The project follows **Clean Architecture** and **Separation of Concerns** princi
 └── logs/                # Auditoria e Debug logs
 
 ---
+
 ##  Aviso Importante / Important Notice
 
 > **[PT-BR]** Este repositório é uma **demonstração técnica** acadêmica e profissional. O objetivo é ilustrar conceitos de Engenharia de Software, como processamento O(1), integração Python-Rust e validação rigorosa.
