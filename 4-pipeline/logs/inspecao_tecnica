@@ -1,0 +1,7 @@
+2026-03-30 12:43:28,721 | INFO     | stream_processor.py:84 | Sistema Iniciado. Preparando motor Polars...
+2026-03-30 12:43:28,722 | INFO     | stream_processor.py:90 | Retomando do registro: 0
+2026-03-30 12:43:28,773 | INFO     | stream_processor.py:104 | Lote finalizado no registro 4999
+2026-03-30 12:43:28,789 | INFO     | stream_processor.py:104 | Lote finalizado no registro 9999
+2026-03-30 12:43:28,805 | INFO     | stream_processor.py:104 | Lote finalizado no registro 14999
+2026-03-30 12:43:28,820 | INFO     | stream_processor.py:104 | Lote finalizado no registro 19999
+2026-03-30 12:43:28,821 | INFO     | stream_processor.py:120 | Pipeline encerrado com segurança.
