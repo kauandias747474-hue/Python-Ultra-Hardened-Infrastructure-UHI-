@@ -39,6 +39,7 @@ The project follows **Clean Architecture** and **Separation of Concerns** princi
 * **Memory Management:** [PT] Garantia de complexidade de espaço O(1) para processar datasets maiores que a memória RAM disponível. [EN] Guarantee of O(1) space complexity to process datasets larger than available RAM.
 
 ---
+
 ##  Estrutura de Pastas / Folder Structure
 
 /
@@ -49,7 +50,6 @@ The project follows **Clean Architecture** and **Separation of Concerns** princi
 └── logs/                # Auditoria e Debug logs
 
 ---
-
 ##  Aviso Importante / Important Notice
 
 > **[PT-BR]** Este repositório é uma **demonstração técnica** acadêmica e profissional. O objetivo é ilustrar conceitos de Engenharia de Software, como processamento O(1), integração Python-Rust e validação rigorosa.
