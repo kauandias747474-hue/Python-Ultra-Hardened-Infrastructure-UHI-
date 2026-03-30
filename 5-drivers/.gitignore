@@ -1,0 +1,43 @@
+# --- Python (uvloop, pyzmq, etc.) ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+
+# --- C / C++ (Low-Level / Kernel Extensions) ---
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+/bin/
+/lib/
+
+# --- IPC & Sockets (Crucial para seu projeto) ---
+# Ignora os arquivos de socket criados em tempo de execução
+*.sock
+/tmp/*.sock
+/ipc/*.sock
+
+# --- ZeroMQ / Messaging ---
+# Ignora arquivos de log ou persistência temporária do ZMQ
+*.zmq
+*.log
+
+# --- IDEs & OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Environment & Secrets ---
+.env
+*.pem
+*.key
