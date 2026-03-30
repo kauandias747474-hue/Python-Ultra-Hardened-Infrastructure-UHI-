@@ -1,4 +1,4 @@
-# 5-Drivers: Low-Level I/O, IPC & Zero-Copy Architecture
+# 5-Drivers: Low-Level I/O, IPC & Zero-Copy
 
 ### [PT-BR] Descrição
 Este módulo demonstra uma infraestrutura de comunicação entre processos (IPC) de ultra-baixa latência, utilizando uma arquitetura de **Zero-Copy**. O objetivo é mover dados entre diferentes aplicações sem o overhead de escrita em disco ou múltiplas cópias na memória RAM, simulando o núcleo de um motor de missão crítica (como sistemas de HFT - High Frequency Trading ou Defesa Cibernética).
