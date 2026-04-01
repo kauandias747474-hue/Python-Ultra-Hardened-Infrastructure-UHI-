@@ -1,7 +1,7 @@
 import threading
 import time
 import random
-from metrics_exporter import run_exporter # Importando do arquivo com T
+from metrics_exporter import run_exporter
 
 def monitor_perf(func):
     def wrapper(*args, **kwargs):
@@ -21,16 +21,14 @@ def heavy_task():
 if __name__ == "__main__":
     print("=== SISTEMA DE TELEMETRIA INICIADO ===")
     
-    # 1. INICIAR O SITE PRIMEIRO (Numa via paralela/Thread)
+   
     try:
-        # Usamos daemon=True para o site fechar se você fechar o programa
         t = threading.Thread(target=run_exporter, args=(8000,), daemon=True)
         t.start()
-        time.sleep(1) # Dá 1 segundo para o servidor 'subir' antes da carga
+        time.sleep(1) 
     except Exception as e:
         print(f"[!] Erro ao ligar o site: {e}")
 
-    # 2. INICIAR A CARGA DEPOIS
     try:
         heavy_task()
     except KeyboardInterrupt:
