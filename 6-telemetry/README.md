@@ -54,6 +54,25 @@ This project implements a real-time telemetry system for monitoring hardware res
 
 ---
 
+##  Como os componentes se conectam? / How components connect?
+
+### 🇧🇷 Português: O Fluxo de Dados
+A conexão entre os arquivos segue uma hierarquia de responsabilidades:
+
+1. **Camada de Coleta (`system_monitor.py`)**: É a base. Ele não conhece a rede nem a lógica de negócio, apenas lê o Kernel do Windows/Linux e entrega um dicionário Python.
+2. **Camada de Exposição (`metrics_explorer.py`)**: Ele **importa** o monitor. Ele é o "traductor" que pega o dicionário do monitor e injeta nos objetos `Gauge` do Prometheus, disponibilizando-os via HTTP.
+3. **Camada de Orquestração (`main.py`)**: Ele **importa** o explorer. Ele é o "mestre" que decide quando o servidor deve ligar (via Threading) e cria o cenário (carga de CPU) para que as métricas tenham o que mostrar.
+
+### 🇺🇸 English: The Data Flow
+The connection between files follows a hierarchy of responsibilities:
+
+1. **Collection Layer (`system_monitor.py`)**: The foundation. It knows nothing about the network or business logic; it simply reads the Windows/Linux Kernel and returns a Python dictionary.
+2. **Exposition Layer (`metrics_explorer.py`)**: It **imports** the monitor. It acts as the "translator" that takes the monitor's dictionary and injects it into Prometheus `Gauge` objects, making them available via HTTP.
+3. **Orchestration Layer (`main.py`)**: It **imports** the explorer. It is the "master" that decides when the server should start (via Threading) and creates the scenario (CPU load) so the metrics have something to display.
+
+
+
+---
 
 ##  Como Executar / How to Run
 
@@ -94,3 +113,5 @@ Open your browser and navigate to:
 *You will see the raw metrics (Gauges) being updated in real-time every second.*
 
 ---
+
+
