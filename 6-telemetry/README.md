@@ -48,13 +48,12 @@ This project implements a real-time telemetry system for monitoring hardware res
 
 ##  Por que este código é interessante? / Why is this interesting?
 
-[PT] Embora seja um código demonstrativo, ele resolve problemas reais de engenharia, como a compatibilidade entre sistemas operacionais (Windows vs Linux) e o gerenciamento de concorrência. É uma prova de conceito de como sistemas de larga escala (SRE/DevOps) monitoram a saúde de milhares de servidores simultaneamente. É a transição de um "script simples" para uma "aplicação observável".
+[PT] *Embora seja um código demonstrativo, ele resolve problemas reais de engenharia, como a compatibilidade entre sistemas operacionais (Windows vs Linux) e o gerenciamento de concorrência. É uma prova de conceito de como sistemas de larga escala (SRE/DevOps) monitoram a saúde de milhares de servidores simultaneamente. É a transição de um "script simples" para uma "aplicação observável".*
 
-[EN] Although it is a demonstrative code, it solves real engineering problems, such as OS compatibility (Windows vs Linux) and concurrency management. It is a proof of concept of how large-scale systems (SRE/DevOps) monitor the health of thousands of servers simultaneously. It represents the transition from a "simple script" to an "observable application."
-
----
+[EN] *Although it is a demonstrative code, it solves real engineering problems, such as OS compatibility (Windows vs Linux) and concurrency management. It is a proof of concept of how large-scale systems (SRE/DevOps) monitor the health of thousands of servers simultaneously. It represents the transition from a "simple script" to an "observable application."*
 
 ---
+
 
 ##  Como Executar / How to Run
 
