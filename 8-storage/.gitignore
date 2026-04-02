@@ -1,0 +1,18 @@
+# Byte-compiled / Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments (Pastas de bibliotecas virtuais)
+venv/
+env/
+.env
+
+# Benchmarking & Tracing (Arquivos gerados pelo VizTracer ou Pytest)
+.benchmarks/
+result.json
+viztracer_report.html
+
+# Operating System Files
+.DS_Store
+Thumbs.db
