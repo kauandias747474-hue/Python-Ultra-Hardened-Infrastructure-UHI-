@@ -1,18 +1,26 @@
-# Byte-compiled / Python caches
+# --- Banco de Dados e Persistência ---
+# Ignora o arquivo de storage real para não subir dados sensíveis
+storage.db
+# Ignora arquivos temporários criados pelo AtomicWriter durante falhas ou testes
+*.tmp
+*.bak
+
+# --- Segurança e Chaves (CRÍTICO) ---
+# Nunca suba suas chaves privadas!
+*.pem
+*.key
+private_key.pem
+fernet_key.key
+
+# --- Python e Ambiente ---
 __pycache__/
 *.py[cod]
 *$py.class
-
-# Environments (Pastas de bibliotecas virtuais)
+.env
+.venv
 venv/
 env/
-.env
 
-# Benchmarking & Tracing (Arquivos gerados pelo VizTracer ou Pytest)
-.benchmarks/
-result.json
-viztracer_report.html
-
-# Operating System Files
-.DS_Store
-Thumbs.db
+# --- Logs e Diagnóstico ---
+*.log
+.pytest_cache/
