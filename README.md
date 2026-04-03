@@ -91,8 +91,42 @@ Para construir essa infraestrutura de nível industrial, o projeto utiliza um **
 * **Dynaconf**: Gestão dinâmica de configurações e ambientes seguindo a metodologia Twelve-Factor App.
 * **transitions**: Framework especializado para a implementação de Máquinas de Estados Finitos (FSM) determinísticas.
 
-  ---
+---
+##  Applied Computer Science / Ciência da Computação Aplicada
 
+O **UHI** não é apenas código; é a aplicação prática de conceitos fundamentais de CS para extrair performance máxima do hardware.
+
+### 1. Algoritmos e Complexidade (Complexity Theory)
+* **O(1) Space Complexity:** Garantia de uso constante de memória em pipelines massivos via **Generators** e **Iterators**, evitando o estouro de RAM independente do tamanho do dataset.
+* **O(log n) Scheduling:** O Nano-Scheduler utiliza uma **Priority Queue (Min-Heap)** para garantir que a próxima tarefa crítica seja sempre a primeira, mantendo a latência determinística.
+
+### 2. Sistemas Operacionais (OS Internals)
+* **Context Switching Mitigation:** Uso de **CPU Affinity** (Pinning) para prender processos em núcleos específicos, reduzindo saltos de cache e trocas de contexto desnecessárias.
+* **Zero-Copy I/O:** Implementação de **Memory-Mapped Files (mmap)** para tratar o disco como RAM, eliminando o overhead de cópia de dados entre Kernel e User-Space.
+* **POSIX Signal Handling:** Intercepção de sinais de sistema (`SIGINT`, `SIGTERM`) para garantir o fechamento atômico de recursos e integridade dos dados (Graceful Shutdown).
+
+### 3. Engenharia de Software e Design (System Design)
+* **Inversion of Control (IoC):** Centralização da criação de objetos via **Dependency Injection Container**, permitindo desacoplamento total entre drivers e lógica de negócio.
+* **Finite State Machines (FSM):** Modelagem de fluxos de decisão via Máquinas de Estados, eliminando estados inválidos e garantindo **Atomicidade** nas transições.
+* **Memory Locality:** Organização de dados em buffers contíguos (`array.array`) para maximizar o **Cache Hit Rate (L1/L2)** da CPU.
+
+### 4. Teoria de Redes e Protocolos (Networking)
+* **Binary Serialization:** Substituição de formatos textuais (JSON) por pacotes binários compactos (**MessagePack/Struct**), respeitando o **Endianness** da arquitetura para portabilidade total.
+* **Inter-Process Communication (IPC):** Uso de **Shared Memory** e **Unix Domain Sockets** para comunicação entre processos com latência próxima de zero.
+
+  ---
+### Cyber-Hardening & Security Engineering / Engenharia de Segurança
+
+O **UHI** foi desenhado com princípios de segurança ofensiva e defensiva, garantindo a integridade dos dados e a resiliência do processo contra vetores de ataque comuns em nível de sistema.
+
+* **Anti-Forensics & Memory Hygiene:** Implementação de rotinas de limpeza agressiva de RAM via `gc.collect()` e destruição de objetos sensíveis após o uso, minimizando a janela de oportunidade para *Memory Dumps* e extração de segredos.
+* **Kernel-Level Sandboxing:** Uso de `resource.setrlimit` (POSIX) para impor limites rígidos de consumo de CPU e RAM, mitigando ataques de **Denial of Service (DoS)** por exaustão de recursos.
+* **Atomic Storage & Data Integrity:** Proteção contra corrupção de dados (Bit Rot) e quedas de energia via **Shadow Paging** e verificações de integridade com **MD5 Checksumming** em cada bloco de persistência.
+* **Binary Hardening:** Substituição de protocolos textuais vulneráveis a injeção (como JSON/XML) por pacotes binários estritos via **Struct (C-Style)**, eliminando vetores de ataque por *Type Confusion* ou *Parsing Exploits*.
+* **Secure Shutdown (Signal Interception):** Tratamento de sinais de Kernel (`SIGINT`/`SIGTERM`) para garantir que travas de memória (Locks) não fiquem órfãs, evitando condições de estado inseguras em reinicializações forçadas.
+* **Hybrid Cryptography:** Camada de persistência protegida por criptografia híbrida (AES-256 para dados e RSA para chaves), garantindo o *At-Rest Encryption* de nível industrial.
+
+  ---
 
 ## 📩 Conexão / Contact
 
