@@ -1,85 +1,107 @@
-#  Python Ultra-High-Performance Infrastructure (UHI)
-# Infraestrutura Python de Ultra Alta Performance (UHI)
+# 🚀 Python Ultra-High-Performance Infrastructure (UHI)
+### *The "Zero-Footprint" Systems Engineering Framework*
+
 ![Status](https://img.shields.io/badge/Status-100%25_Complete-green?style=for-the-badge) ![Performance](https://img.shields.io/badge/Performance-Zero--Latency-blue?style=for-the-badge) ![Security](https://img.shields.io/badge/Security-Hardened-red?style=for-the-badge)
 
 > **"Abstractions are expensive; precision is free."**
-> *Systems engineering focused on zero latency and deterministic automation.*
-> *Engenharia de sistemas voltada para latência zero e automação determinística.*
+> *Engenharia de sistemas voltada para latência zero e determinismo absoluto.*
 
 ---
 
-## 🧬 The Vanilla-First Manifesto / O Manifesto Vanilla-First
+## 🧬 O Manifesto Vanilla-First / The Vanilla-First Manifesto
 
-[PT-BR] O **UHI** é um **Micro-Runtime de Alta Performance** construído sobre a Standard Library do Python, agora potencializado por integrações cirúrgicas de frameworks modernas em Rust/C. Projetado para cenários onde o overhead de frameworks tradicionais é o gargalo, o UHI foca em **Bytecode Optimization, Zero-Copy Memory e Escalonamento em User-Space.**
+**[PT-BR]** O **UHI** é um ecossistema de alta performance construído para levar o Python ao limite do hardware. Desenvolvido para cenários de missão crítica (HFT, Automação Industrial e Forensics), o UHI elimina o overhead de frameworks tradicionais, focando em **Otimização de Bytecode, Memória Zero-Copy e Escalonamento em User-Space.**
 
-[EN] **UHI** is a **High-Performance Micro-Runtime** built on Python's Standard Library, now enhanced by surgical integrations of modern Rust/C-backed frameworks. Designed for scenarios where traditional framework overhead is the bottleneck, UHI focuses on **Bytecode Optimization, Zero-Copy Memory, and User-Space Scheduling.**
-
----
-
-## 🏗️ Architecture Domains / Domínios de Responsabilidade
-
-### ⚙️ `0-Bootstrap/` (The Gatekeeper)
-* **PT:** Validação atômica de ambiente via **Pydantic V2** e **Dynaconf**. Injeção de dependências e travas de Kernel (`resource`).
-* **EN:** Atomic environment validation via **Pydantic V2** and **Dynaconf**. Dependency injection and Kernel resource limiting (`resource`).
-
-### 🚀 `1-Engine/` (The Atomic Core)
-* **PT:** **Nano-Scheduler** baseado em geradores. Escalonamento determinístico com ciclos de 10ms via `time.perf_counter_ns`.
-* **EN:** Generator-based **Nano-Scheduler**. Deterministic scheduling with 10ms cycles via `time.perf_counter_ns`.
-
-### 🏛️ `2-Architect/` (Memory Layout)
-* **PT:** Densidade de memória via `__slots__` e objetos **Type-Strict**. Redução de até 60% no consumo de RAM.
-* **EN:** Memory density via `__slots__` and **Type-Strict** objects. Up to 60% reduction in RAM consumption.
-
-### 🤖 `3-Strategy/` (Execution Logic)
-* **PT:** Máquinas de Estados Finitos (**FSM**) via biblioteca `transitions` para fluxos de decisão sem race conditions.
-* **EN:** Finite State Machines (**FSM**) via `transitions` library for race-condition-free decision flows.
-
-### 🌊 `4-Pipeline/` (Stream Engine)
-* **PT:** Processamento massivo $O(1)$ com **Lazy Evaluation** e integração **Polars** (Rust-engine) para ETL de alta velocidade.
-* **EN:** $O(1)$ massive processing with **Lazy Evaluation** and **Polars** (Rust-engine) integration for high-speed ETL.
-
-### 🔗 `5-Drivers/` (Low-Level I/O)
-* **PT:** Comunicação ultra-rápida via **Unix Domain Sockets** e **ZeroMQ**. Performance de I/O via **uvloop**.
-* **EN:** Ultra-fast communication via **Unix Domain Sockets** and **ZeroMQ**. I/O performance via **uvloop**.
-
-### 📈 `6-Telemetry/` & `7-Lab/` (Observability)
-* **PT:** Monitoramento de *Context Switches* e *CPU Jitter*. Benchmarks científicos via **VizTracer** e **Prometheus**.
-* **EN:** Monitoring of *Context Switches* and *CPU Jitter*. Scientific benchmarks via **VizTracer** and **Prometheus**.
-
-### 💾 `8-Storage/` & `9-Protocols/` (Persistence)
-* **PT:** **Mmap Storage** (Zero-copy) e serialização binária via **Struct** e **MessagePack**.
-* **EN:** **Mmap Storage** (Zero-copy) and binary serialization via **Struct** and **MessagePack**.
-
-### 🚀 `10-Apps/` (Integration Layer)
-* **PT:** Casos de uso reais: **Fast Scraper**, **Industrial Bot** e **Smart Search** conectados via memória compartilhada.
-* **EN:** Real-world use cases: **Fast Scraper**, **Industrial Bot**, and **Smart Search** connected via shared memory.
+**[EN]** **UHI** is a high-performance ecosystem built to push Python to the hardware limit. Developed for mission-critical scenarios (HFT, Industrial Automation, and Forensics), UHI eliminates traditional framework overhead, focusing on **Bytecode Optimization, Zero-Copy Memory, and User-Space Scheduling.**
 
 ---
 
-## 🛠️ High-Performance Engineering Table
+## 🏗️ Domínios de Arquitetura / Architecture Domains
+
+### 🛡️ `0-Bootstrap` & `1-Engine` | The Atomic Core
+* **PT:** Validação atômica de ambiente, Injeção de Dependências (IoC) e o **Nano-Scheduler** (User-Space) para execução determinística com jitter mínimo.
+* **EN:** Atomic environment validation, Dependency Injection (IoC), and the **Nano-Scheduler** (User-Space) for deterministic execution with minimum jitter.
+
+### 🏛️ `2-Architect` & `3-Strategy` | Memory & Logic
+* **PT:** Densidade de RAM via `__slots__` e **FSM (State Machines)** protegidas por **Mutex Locks**, garantindo fluxos livres de *race conditions*.
+* **EN:** RAM density via `__slots__` and **FSM (State Machines)** guarded by **Mutex Locks**, ensuring race-condition-free execution flows.
+
+### 🌊 `4-Pipeline` & `5-Drivers` | High-Speed I/O
+* **PT:** Processamento $O(1)$ via **Polars (Rust engine)** e comunicação IPC de ultra-baixa latência usando **Shared Memory** e **Zero-Copy**.
+* **EN:** $O(1)$ processing via **Polars (Rust engine)** and ultra-low latency IPC using **Shared Memory** and **Zero-Copy**.
+
+### 📡 `6-Telemetry` & `7-Lab` | Observability & Proof
+* **PT:** Monitoramento de *Context Switches* e análise científica de **Bytecode (OpCodes)** para validação de performance em nível de CPU.
+* **EN:** Monitoring of *Context Switches* and scientific **Bytecode (OpCodes)** analysis for CPU-level performance validation.
+
+### 💾 `8-Storage` & `9-Protocols` | Persistence & Binary
+* **PT:** Armazenamento Atômico via **Mmap** e protocolos binários (**MessagePack/Struct**) para eliminar o custo de parsing de texto (JSON).
+* **EN:** Atomic Storage via **Mmap** and binary protocols (**MessagePack/Struct**) to eliminate text parsing overhead (JSON).
+
+---
+
+## 🛠️ Performance Matrix / Matriz de Engenharia
 
 | Vector / Vetor | Technique / Técnica | Impact / Impacto |
 | :--- | :--- | :--- |
-| **Execution** | **uvloop + Nanoscheduler** | Lower Latency / Menor Latência |
-| **Memory** | **__slots__ + mmap** | Zero-Copy / Pegada de RAM O(1) |
-| **Validation** | **Pydantic (Rust Core)** | Type Safety @ C-Speed |
-| **I/O** | **Unix Sockets + Msgpack** | Wire-speed Data Transfer |
+| **Execution** | **User-Space Nano-Scheduler** | Deterministic Timing / Tempo Real |
+| **Memory** | **__slots__ + mmap** | 80% RAM Reduction / Pegada O(1) |
+| **Validation** | **Pydantic V2 (Rust Core)** | Type Safety @ C-Speed |
+| **I/O** | **Zero-Copy + Shared Memory** | No Disk I/O Overhead / Latência Zero |
 
 ---
 
-## 🔍 Why UHI? / Por que o UHI?
+## 🔍 Por que o UHI? / Why UHI?
 
-[PT-BR] Este repositório prova que o Python, quando tratado como linguagem de sistemas e despojado de abstrações desnecessárias, é capaz de gerenciar cargas industriais e automação de tempo real com precisão de microssegundos. **Sem faculdade, sem cursos técnicos: apenas engenharia pura guiada por documentação e mentoria de IA.**
+**[PT-BR]** Este repositório prova que o Python, quando despojado de abstrações desnecessárias e guiado por engenharia de baixo nível, gerencia cargas industriais com precisão de microssegundos. **Engenharia pura, sem atalhos.**
 
-[EN] This repository proves that Python, when treated as a systems language and stripped of unnecessary abstractions, is capable of managing industrial loads and real-time automation with microsecond precision. **No college, no technical courses: just pure engineering guided by documentation and AI mentorship.**
+**[EN]** This repository proves that Python, when stripped of unnecessary abstractions and guided by low-level engineering, manages industrial loads with microsecond precision. **Pure engineering, no shortcuts.**
 
 ---
+### 🛠️ Lista de Ferramentas e Tecnologias Usadas
+
+Para construir essa infraestrutura de nível industrial, o projeto utiliza um **"Stack de Elite"** que integra a robustez da biblioteca padrão do Python com motores de alta performance escritos em Rust e C:
+
+#### **Core & Engine (Lógica de Baixo Nível)**
+* **Python 3.14+**: Base do projeto, utilizando as otimizações mais recentes do interpretador para ganho de performance nativa.
+* **Threading & Multiprocessing**: Implementação de execução concorrente e paralela para contornar o GIL (Global Interpreter Lock).
+* **mmap**: Mapeamento de memória para operações de I/O de Cópia Zero (Zero-Copy), tratando arquivos como RAM.
+* **struct**: Serialização e empacotamento de dados em formato binário puro (C-Style).
+
+#### **Data & Performance (Motores em Rust/C)**
+* **Polars**: Motor de processamento de dados em Rust com suporte a Lazy Evaluation e execução multithreaded.
+* **Pydantic V2**: Validação de esquemas e dados com core escrito em Rust para garantir integridade sem perda de velocidade.
+* **MessagePack (msgpack)**: Protocolo de serialização binária compacto, superior ao JSON em tamanho e tempo de processamento.
+* **NumPy**: Biblioteca fundamental para computação científica, cálculos vetorizados e operações SIMD (Single Instruction, Multiple Data).
+* **Orjson**: Otimização de I/O para JSON com o parser mais rápido do ecossistema Python (escrito em Rust).
+
+#### **Network & IPC (Comunicação)**
+* **PyZMQ (ZeroMQ)**: Biblioteca de mensageria de ultra-baixa latência para comunicação entre processos (IPC) distribuídos.
+* **uvloop**: Substituto do loop de eventos padrão do `asyncio`, implementado em Cython para performance comparável a Go e Node.js.
+
+#### **Observability & Benchmarking (SRE)**
+* **Prometheus Client**: Exposição de métricas em tempo real para monitoramento e análise de saúde do sistema.
+* **psutil**: Monitoramento profundo de hardware (CPU, RAM, Disk) e métricas de Kernel (Context Switches, Page Faults).
+* **pytest-benchmark**: Ferramenta de micro-benchmarking para validação estatística de latência em funções críticas.
+* **dis**: Módulo de análise de Bytecode do CPython para auditoria de eficiência de OpCodes.
+* **VizTracer**: Profiler de baixa latência para rastreamento determinístico de execução e visualização de concorrência.
+
+#### **DevOps & Architecture**
+* **Dependency Injector**: Gerenciamento de Injeção de Dependências (DI) para garantir desacoplamento total e Inversão de Controle (IoC).
+* **Dynaconf**: Gestão dinâmica de configurações e ambientes seguindo a metodologia Twelve-Factor App.
+* **transitions**: Framework especializado para a implementação de Máquinas de Estados Finitos (FSM) determinísticas.
+
+  ---
+
 
 ## 📩 Conexão / Contact
 
 **Kauan Oliveira**
-*Software & Automation Engineer*
+*Software & Automation Systems Engineer*
 
-🔗 [LinkedIn](https://www.linkedin.com/in/kauan-oliveira-324264378/) | ✉️ [Email](mailto:kauandias747474@gmail.com) | 👾 Discord: `@knoliveira7774`
+* 🔗 **LinkedIn:** [linkedin.com/in/kauan-oliveira-324264378/](https://www.linkedin.com/in/kauan-oliveira-324264378/)
+* ✉️ **Email:** [kauandias747474@gmail.com](mailto:kauandias747474@gmail.com)
+* 👾 **Discord:** `@knoliveira7774`
 
-> **2026 | Built for Excellence.**
+---
+> **2026 | Built for Excellence. Optimized for the Future.**
