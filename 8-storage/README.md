@@ -1,4 +1,4 @@
-# 🗄️ 8-Storage: Atomic Persistence & Mmap
+#  8-Storage: Atomic Persistence & Mmap
 
 Este módulo foca na criação de um motor de armazenamento de baixa latência e alta confiabilidade, combinando performance de memória RAM com segurança de escrita atômica.
 
