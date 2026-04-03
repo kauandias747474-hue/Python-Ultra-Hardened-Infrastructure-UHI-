@@ -1,56 +1,79 @@
-#  8-Storage: Atomic Persistence & Mmap
+#  8-Storage
 
-Este módulo foca na criação de um motor de armazenamento de baixa latência e alta confiabilidade, combinando performance de memória RAM com segurança de escrita atômica.
-
----
-
-##  Lógica do Código / Code Logic
-
-### 1. Zero-Copy Persistence (Memory Mapping)
-* **[PT-BR]** O arquivo `mmap_db.py` utiliza **Virtual Memory Mapping**. Em vez de realizar operações tradicionais de leitura e escrita em disco (I/O), o arquivo é mapeado diretamente no espaço de endereçamento da memória RAM. Isso permite acesso **O(1)** (tempo constante) aos registros, tratando o arquivo como um grande array de bytes.
-* **[EN]** The `mmap_db.py` file uses **Virtual Memory Mapping**. Instead of traditional disk I/O operations, the file is mapped directly into the RAM address space. This allows **O(1)** (constant time) access to records, treating the file as a large byte array.
-
-
-
-### 2. Atomic Write & Shadow Paging
-* **[PT-BR]** O `atomic_writer.py` implementa a técnica de **Shadow Paging**. Para evitar a corrupção de dados, as alterações são gravadas primeiro em um arquivo temporário (`.tmp`). Somente após o sucesso da gravação física (`fsync`), o arquivo original é substituído via `os.replace`.
-* **[EN]** `atomic_writer.py` implements the **Shadow Paging** technique. To avoid data corruption, changes are first written to a temporary file (`.tmp`). Only after successful physical writing (`fsync`), the original file is replaced via `os.replace`.
-
-
-
----
-
-##  Conceitos & Erros Aprendidos / Concepts & Lessons Learned
-
-### Desafios Técnicos / Technical Challenges
-* **Pre-allocation:** Aprendi que o `mmap` exige que o arquivo no disco já tenha o tamanho pretendido (pre-padding) para evitar erros de barramento (Bus Errors).
-* **State Management:** A importância de resetar ponteiros de arquivo (`seek(0)`) e garantir que o buffer de memória esteja sincronizado antes da persistência.
-* **Crash Consistency:** A capacidade de um software voltar ao estado estável após um desligamento repentino.
-
-###  O Teste de Estresse Real (Falta de Energia) / The Real-World Stress Test
-* **[PT-BR] Curiosidade:** Durante o desenvolvimento deste módulo, ocorreu uma **queda de energia real** em minha residência. O arquivo de configuração do Git (`.git/config`) foi corrompido, resultando no erro `fatal: bad config line 1`. Isso provou, na prática, a fragilidade de sistemas que não usam escrita atômica. Enquanto o Git falhou, meu sistema foi projetado para sobreviver exatamente a esse cenário, mantendo a integridade do banco de dados.
-* **[EN] Trivia:** During the development of this module, a **real power outage** occurred. The Git config file (`.git/config`) was corrupted, leading to the error `fatal: bad config line 1`. This proved in practice the fragility of systems that do not use atomic writing. While Git failed, my system was designed to survive exactly this scenario, maintaining database integrity.
+Este projeto documenta a implementação de um motor de armazenamento de alto desempenho que utiliza mapeamento de memória virtual e técnicas de persistência atômica para garantir a integridade dos dados.
 
 ---
 
 ##  Arquitetura do Sistema / System Architecture
 
-O sistema é dividido em camadas de responsabilidade (Clean Architecture):
+O sistema é estruturado em três camadas distintas de responsabilidade, isolando a lógica de negócio da infraestrutura de hardware.
 
-1. **`main.py` (Orquestrador):** Gerencia a interface, criptografia RSA/AES e lógica de IDs.
-2. **`mmap_db.py` (Infraestrutura):** Fornece o motor de memória de alta performance e suporte a **Dynamic Resizing** (o banco cresce conforme a necessidade).
-3. **`atomic_writer.py` (Segurança):** Atua como a camada de persistência física, garantindo que o "commit" dos dados seja seguro contra falhas de hardware.
+1.  **`main.py` (Orchestrator):**
+    * **[PT-BR]** Gerencia o fluxo da aplicação e a **Criptografia Híbrida**. Ele processa os dados antes de enviá-los para a camada de persistência, garantindo que o armazenamento receba apenas informações cifradas e estruturadas.
+    * **[EN]** Manages the application flow and **Hybrid Encryption**. It processes data before sending it to the persistence layer, ensuring that the storage receives only encrypted and structured information.
 
+2.  **`mmap_db.py` (Memory Engine):**
+    * **[PT-BR]** Implementa **Memory-Mapped I/O**. Esta camada trata o arquivo em disco como uma extensão da memória RAM, permitindo leitura e escrita diretas através de endereços de memória, eliminando a sobrecarga de chamadas de sistema tradicionais.
+    * **[EN]** Implements **Memory-Mapped I/O**. This layer treats the disk file as an extension of RAM, allowing direct read and write through memory addresses, eliminating the overhead of traditional system calls.
 
+3.  **`atomic_writer.py` (Persistence Layer):**
+    * **[PT-BR]** Responsável pela **Consistência de Escrita**. Utiliza a técnica de *Shadow Paging* para garantir que o arquivo de banco de dados nunca entre em estado corrompido em caso de interrupções abruptas.
+    * **[EN]** Responsible for **Write Consistency**. It uses the *Shadow Paging* technique to ensure the database file never enters a corrupted state in case of abrupt interruptions.
 
 ---
 
-##  Glossário Técnico / Technical Glossary
+##  Pilares Técnicos / Technical Pillars
 
-* **ACID (Atomicity):** [PT] Garantia de "tudo ou nada". [EN] "All or nothing" guarantee.
-* **O(1) Access:** [PT] Velocidade de acesso independente do tamanho do arquivo. [EN] Access speed independent of file size.
-* **fsync:** [PT] Comando que obriga o hardware a gravar os dados do cache no disco físico. [EN] Command that forces the hardware to write cache data to the physical disk.
-* **Hash Integrity:** [PT] Uso de SHA-256 para verificar se o dado foi alterado indevidamente. [EN] Using SHA-256 to verify if data has been improperly altered.
+### 1. Virtual Memory Mapping (mmap)
+
+* **[PT-BR] Acesso O(1):** A localização de qualquer registro é feita via cálculo de *offset* ($ID \times Tamanho$). O `mmap` permite que o sistema operacional gerencie o cache de páginas de forma eficiente, oferecendo performance de RAM para dados em disco.
+* **[EN] O(1) Access:** Locating any record is done via offset calculation ($ID \times Size$). `mmap` allows the operating system to manage page caching efficiently, offering RAM performance for data on disk.
+
+### 2. Shadow Paging & Atomicity
+
+* **[PT-BR] Persistência Atômica:** O processo de escrita segue três etapas: 1) Escrita em arquivo temporário; 2) Flush de hardware (`fsync`); 3) Substituição atômica do arquivo original (`os.replace`). Isso garante que o arquivo original só seja alterado após a gravação completa e segura do novo estado.
+* **[EN] Atomic Persistence:** The writing process follows three steps: 1) Writing to a temporary file; 2) Hardware flush (`fsync`); 3) Atomic replacement of the original file (`os.replace`). This ensures the original file is only changed after the complete and secure recording of the new state.
+
+### 3. Criptografia Híbrida / Hybrid Encryption
+
+* **[PT-BR] Segurança em Repouso:** O sistema utiliza **RSA-2048** para a gestão de chaves e **AES-256** para a cifragem dos dados. A integridade é verificada através de **SHA-256 Checksums**, detectando qualquer alteração não autorizada nos bytes do arquivo.
+* **[EN] Security at Rest:** The system uses **RSA-2048** for key management and **AES-256** for data encryption. Integrity is verified through **SHA-256 Checksums**, detecting any unauthorized changes to the file bytes.
+
+---
+
+## ⚡ Estudo de Caso: Falha de Energia / Case Study: Power Outage
+
+**[PT-BR] Contexto Técnico:** Durante a fase de desenvolvimento, uma falha de energia real permitiu validar a arquitetura. 
+* **Observação:** Arquivos de sistema que não utilizavam escrita atômica foram corrompidos no momento da queda (ex: `.git/config`). 
+* **Resultado:** O arquivo `storage.db` permaneceu íntegro. Como a operação de substituição (`os.replace`) é atômica no nível do kernel, o banco de dados manteve o último estado estável, demonstrando a eficácia da proteção contra corrupção por desligamento inesperado (*Crash Consistency*).
+
+**[EN] Technical Context:** During the development phase, a real power failure allowed the architecture to be validated.
+* **Observation:** System files that did not use atomic writing were corrupted at the time of the crash (e.g., `.git/config`).
+* **Result:** The `storage.db` file remained intact. Since the replacement operation (`os.replace`) is atomic at the kernel level, the database maintained the last stable state, demonstrating the effectiveness of protection against corruption by unexpected shutdown (*Crash Consistency*).
+
+---
+
+##  Lições de Engenharia / Engineering Lessons
+
+| Problema (Issue) | Causa (Cause) | Solução Técnica (Technical Solution) |
+| :--- | :--- | :--- |
+| **Bus Error** | Mapear arquivo vazio. | **Pre-allocation:** Garantir que o arquivo tenha o tamanho correto antes do mapeamento. |
+| **Empty Read** | Ponteiro no final do arquivo. | **Pointer Management:** Uso de `seek(0)` para garantir leitura completa do buffer. |
+| **Data Corruption** | Interrupção de escrita. | **Atomic Swapping:** Uso de arquivos temporários e substituição atômica. |
+
+---
+
+##  Glossário de Revisão / Review Glossary
+
+* **`fsync()`**: 
+    * [PT] Sincroniza o estado do arquivo na memória com o dispositivo de armazenamento físico.
+    * [EN] Synchronizes the file state in memory with the physical storage device.
+* **`Crash Consistency`**: 
+    * [PT] Garantia de que o sistema de arquivos ou banco de dados permanece consistente após uma falha.
+    * [EN] Guarantee that the file system or database remains consistent after a failure.
+* **`Memory-Mapped I/O`**: 
+    * [PT] Técnica que mapeia arquivos ou recursos em endereços de memória.
+    * [EN] Technique that maps files or resources into memory addresses.
 
 
 
