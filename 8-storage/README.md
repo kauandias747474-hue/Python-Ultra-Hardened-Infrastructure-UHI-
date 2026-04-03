@@ -41,7 +41,7 @@ O sistema é estruturado em três camadas distintas de responsabilidade, isoland
 
 ---
 
-## ⚡ Estudo de Caso: Falha de Energia / Case Study: Power Outage
+##  Estudo de Caso: Falha de Energia / Case Study: Power Outage
 
 **[PT-BR] Contexto Técnico:** Durante a fase de desenvolvimento, uma falha de energia real permitiu validar a arquitetura. 
 * **Observação:** Arquivos de sistema que não utilizavam escrita atômica foram corrompidos no momento da queda (ex: `.git/config`). 
