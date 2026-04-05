@@ -1,0 +1,57 @@
+name: 🚀 UHI - Ultra-Hardened Pipeline
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # JOB 1: Engenharia de Qualidade e Segurança
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12 # (Ou 3.14-dev se quiser ser agressivo)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Hardening Tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff mypy bandit pytest pytest-asyncio polars pydantic
+
+      - name: 🔍 Ruff Linter (Rust-powered speed)
+        run: ruff check . --fix
+
+      - name: 🧠 MyPy Strict Mode (Zero 'Any' Policy)
+        run: mypy --strict --ignore-missing-imports .
+
+      - name: 🛡️ Bandit Security Scan (Cyber-Hardening)
+        run: bandit -r 0-bootstrap 1-engine 2-architect 3-strategy 4-pipeline 5-drivers 6-telemetry 7-lab 8-storage 9-protocols
+
+  # JOB 2: Performance & Determinism Validation
+  performance-benchmarking:
+    needs: static-analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Environment
+        run: pip install -r requirements.txt
+      
+      - name: 🧪 Run Async Tests & Benchmarks
+        run: |
+          pytest tests/ --benchmark-only --benchmark-json output.json
+        # Isso gera um relatório de latência que você pode anexar ao PR.
+
+  # JOB 3: Bytecode Audit
+  bytecode-audit:
+    needs: static-analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit OpCodes
+        run: python 7-lab/audit_bytecode.py
+        # Um script seu que verifica se o bytecode gerado está otimizado.
