@@ -5,7 +5,6 @@
 
 ---
 
-## 🧬 O Manifesto Vanilla-First / The Vanilla-First Manifesto
 
 **[PT-BR]** O **UHI** é um ecossistema de alta performance construído para levar o Python ao limite do hardware. Desenvolvido para cenários de missão crítica (HFT, Automação Industrial e Forensics), o UHI elimina o overhead de frameworks tradicionais, focando em **Otimização de Bytecode, Memória Zero-Copy e Escalonamento em User-Space.**
 
@@ -13,31 +12,31 @@
 
 ---
 
-## 🏗️ Domínios de Arquitetura / Architecture Domains
+##  Domínios de Arquitetura / Architecture Domains
 
-### 🛡️ `0-Bootstrap` & `1-Engine` | The Atomic Core
+###  `0-Bootstrap` & `1-Engine` | The Atomic Core
 * **PT:** Validação atômica de ambiente, Injeção de Dependências (IoC) e o **Nano-Scheduler** (User-Space) para execução determinística com jitter mínimo.
 * **EN:** Atomic environment validation, Dependency Injection (IoC), and the **Nano-Scheduler** (User-Space) for deterministic execution with minimum jitter.
 
-### 🏛️ `2-Architect` & `3-Strategy` | Memory & Logic
+###  `2-Architect` & `3-Strategy` | Memory & Logic
 * **PT:** Densidade de RAM via `__slots__` e **FSM (State Machines)** protegidas por **Mutex Locks**, garantindo fluxos livres de *race conditions*.
 * **EN:** RAM density via `__slots__` and **FSM (State Machines)** guarded by **Mutex Locks**, ensuring race-condition-free execution flows.
 
-### 🌊 `4-Pipeline` & `5-Drivers` | High-Speed I/O
+###  `4-Pipeline` & `5-Drivers` | High-Speed I/O
 * **PT:** Processamento $O(1)$ via **Polars (Rust engine)** e comunicação IPC de ultra-baixa latência usando **Shared Memory** e **Zero-Copy**.
 * **EN:** $O(1)$ processing via **Polars (Rust engine)** and ultra-low latency IPC using **Shared Memory** and **Zero-Copy**.
 
-### 📡 `6-Telemetry` & `7-Lab` | Observability & Proof
+###  `6-Telemetry` & `7-Lab` | Observability & Proof
 * **PT:** Monitoramento de *Context Switches* e análise científica de **Bytecode (OpCodes)** para validação de performance em nível de CPU.
 * **EN:** Monitoring of *Context Switches* and scientific **Bytecode (OpCodes)** analysis for CPU-level performance validation.
 
-### 💾 `8-Storage` & `9-Protocols` | Persistence & Binary
+###  `8-Storage` & `9-Protocols` | Persistence & Binary
 * **PT:** Armazenamento Atômico via **Mmap** e protocolos binários (**MessagePack/Struct**) para eliminar o custo de parsing de texto (JSON).
 * **EN:** Atomic Storage via **Mmap** and binary protocols (**MessagePack/Struct**) to eliminate text parsing overhead (JSON).
 
 ---
 
-## 🛠️ Performance Matrix / Matriz de Engenharia
+##  Performance Matrix / Matriz de Engenharia
 
 | Vector / Vetor | Technique / Técnica | Impact / Impacto |
 | :--- | :--- | :--- |
@@ -48,14 +47,14 @@
 
 ---
 
-## 🔍 Por que o UHI? / Why UHI?
+##  Por que o UHI? / Why UHI?
 
 **[PT-BR]** Este repositório prova que o Python, quando despojado de abstrações desnecessárias e guiado por engenharia de baixo nível, gerencia cargas industriais com precisão de microssegundos. **Engenharia pura, sem atalhos.**
 
 **[EN]** This repository proves that Python, when stripped of unnecessary abstractions and guided by low-level engineering, manages industrial loads with microsecond precision. **Pure engineering, no shortcuts.**
 
 ---
-### 🛠️ Lista de Ferramentas e Tecnologias Usadas
+###  Lista de Ferramentas e Tecnologias Usadas
 
 Para construir essa infraestrutura de nível industrial, o projeto utiliza um **"Stack de Elite"** que integra a robustez da biblioteca padrão do Python com motores de alta performance escritos em Rust e C:
 
@@ -125,14 +124,14 @@ O **UHI** foi desenhado com princípios de segurança ofensiva e defensiva, gara
 
   ---
 
-## 📩 Conexão / Contact
+##  Conexão / Contact
 
 **Kauan Oliveira**
 *Software & Automation Systems Engineer*
 
-* 🔗 **LinkedIn:** [linkedin.com/in/kauan-oliveira-324264378/](https://www.linkedin.com/in/kauan-oliveira-324264378/)
-* ✉️ **Email:** [kauandias747474@gmail.com](mailto:kauandias747474@gmail.com)
-* 👾 **Discord:** `@knoliveira7774`
+*  **LinkedIn:** [linkedin.com/in/kauan-oliveira-324264378/](https://www.linkedin.com/in/kauan-oliveira-324264378/)
+*  **Email:** [kauandias747474@gmail.com](mailto:kauandias747474@gmail.com)
+*  **Discord:** `@knoliveira7774`
 
 ---
 > **2026 | Built for Excellence. Optimized for the Future.**
