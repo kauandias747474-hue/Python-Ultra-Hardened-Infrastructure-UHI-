@@ -22,7 +22,7 @@ class InstantSearch:
     
         file_size = os.path.getsize(self.file_path)
         if offset + RECORD_SIZE > file_size:
-            print(f"⚠️ Erro: Sensor ID {sensor_id} está fora do limite do arquivo ({file_size} bytes).")
+            print(f" Erro: Sensor ID {sensor_id} está fora do limite do arquivo ({file_size} bytes).")
             return None
 
         with open(self.file_path, "rb") as f:
@@ -38,7 +38,7 @@ class InstantSearch:
                 return IndustrialData.unpack(binary_chunk)
                 
             except Exception as e:
-                print(f"❌ Falha técnica na leitura da RAM: {e}")
+                print(f" Falha técnica na leitura da RAM: {e}")
                 return None
 
 if __name__ == "__main__":
@@ -55,16 +55,16 @@ if __name__ == "__main__":
             
             if item:
                 print("-" * 40)
-                print(f"🎯 RESULTADO DA BUSCA SNIPER (O(1))")
+                print(f" RESULTADO DA BUSCA SNIPER (O(1))")
                 print("-" * 40)
-                print(f"📡 Sensor ID : {item.sensor_id}")
-                print(f"🌡️ Temperatura: {item.temp:.2f} °C")
-                print(f"🌀 Pressão    : {item.press:.2f} bar")
+                print(f" Sensor ID : {item.sensor_id}")
+                print(f" Temperatura: {item.temp:.2f} °C")
+                print(f" Pressão    : {item.press:.2f} bar")
                 print("-" * 40)
             
         except ValueError:
-            print("❌ Erro: O ID do sensor deve ser um número inteiro.")
+            print("Erro: O ID do sensor deve ser um número inteiro.")
     else:
-        print("\n💡 Como usar o Sniper:")
+        print("\n Como usar o Sniper:")
         print("   python smart_search.py [ID_DO_SENSOR]")
         print("   Exemplo: python smart_search.py 5\n")
