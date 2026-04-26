@@ -22,7 +22,7 @@ def controller_worker_logic():
             time.sleep(max(0, 0.1 - elapsed))
             
     except Exception as e:
-        print(f"❌ [CONTROLLER ERROR] Erro de sincronia: {e}")
+        print(f" [CONTROLLER ERROR] Erro de sincronia: {e}")
 
 def controller_worker():
     """Ponto de entrada chamado pelo Sentinel."""
