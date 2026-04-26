@@ -19,12 +19,12 @@ class ProcessSentinel:
         """Inicia o processo sem passar o objeto mmap por argumento (Evita WinError 87)."""
         self.process = multiprocessing.Process(target=self.target, name=self.name, daemon=True)
         self.process.start()
-        print(f"✅ [SENTINEL] {self.name} ATIVADO (PID: {self.process.pid})")
+        print(f" [SENTINEL] {self.name} ATIVADO (PID: {self.process.pid})")
 
     def keep_alive(self):
         """Verifica a saúde do processo e reinicia se necessário."""
         if self.process is None or not self.process.is_alive():
-            print(f"⚠️ [ALERTA] {self.name} parou de responder! Reiniciando unidade...")
+            print(f" [ALERTA] {self.name} parou de responder! Reiniciando unidade...")
             self.spawn()
 
 def setup_ram_global():
@@ -37,7 +37,7 @@ def setup_ram_global():
         try:
             os.remove(FILE)
         except OSError:
-            print("❌ ERRO: O arquivo data.bin está sendo usado. Feche outros terminais.")
+            print(" ERRO: O arquivo data.bin está sendo usado. Feche outros terminais.")
             sys.exit(1)
 
     with open(FILE, "wb") as f:
@@ -54,12 +54,12 @@ if __name__ == "__main__":
     multiprocessing.freeze_support()
     
     print("-" * 50)
-    print("🚀 INICIALIZANDO NÚCLEO UHI - CONEXÃO INTEGRAL")
+    print(" INICIALIZANDO NÚCLEO UHI - CONEXÃO INTEGRAL")
     print("-" * 50)
 
    
     f_handle, shared_memory = setup_ram_global()
-    print("🧠 [MAIN] Memória Compartilhada Criada (Tag: UHI_RAM_GLOBAL).")
+    print(" [MAIN] Memória Compartilhada Criada (Tag: UHI_RAM_GLOBAL).")
 
  
     s_scraper = ProcessSentinel(fast_scraper.scraper_worker, "UNIDADE_SCRAPER")
@@ -69,8 +69,8 @@ if __name__ == "__main__":
     s_scraper.spawn()
     s_controller.spawn()
 
-    print("\n🛰️ SISTEMA TOTALMENTE OPERACIONAL")
-    print("🛑 Pressione CTRL+C para encerrar o núcleo.\n")
+    print("\n SISTEMA TOTALMENTE OPERACIONAL")
+    print(" Pressione CTRL+C para encerrar o núcleo.\n")
 
     try:
         while True:
@@ -79,7 +79,7 @@ if __name__ == "__main__":
             s_controller.keep_alive()
             time.sleep(2)
     except KeyboardInterrupt:
-        print("\n\n🛑 [SHUTDOWN] Desligando hardware e liberando RAM...")
+        print("\n\n [SHUTDOWN] Desligando hardware e liberando RAM...")
     finally:
         shared_memory.close()
         f_handle.close()
