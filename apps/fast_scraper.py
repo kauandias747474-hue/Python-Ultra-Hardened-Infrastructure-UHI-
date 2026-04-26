@@ -26,7 +26,7 @@ async def run_scraper_logic():
             await asyncio.sleep(0.01)
             
     except Exception as e:
-        print(f"❌ [SCRAPER ERROR] Falha na conexão com a RAM: {e}")
+        print(f" [SCRAPER ERROR] Falha na conexão com a RAM: {e}")
 
 def scraper_worker():
     """Ponto de entrada para o processo filho."""
