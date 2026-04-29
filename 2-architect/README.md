@@ -37,7 +37,7 @@
 
 ---
 
-### 📊 Tabela de Eficiência / Efficiency Table
+###  Tabela de Eficiência / Efficiency Table
 
 | Component | Logic | Benefit |
 | :--- | :--- | :--- |
