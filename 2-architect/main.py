@@ -11,11 +11,11 @@ class SchemaSecure(BaseModel):
     severidade: int
     timestamp: float
 
-class SchemaValidator: # O "Gordo"
+class SchemaValidator: 
     def __init__(self):
         self.x = 1
 
-class SchemaInitial: # O "Squeezed"
+class SchemaInitial:
     __slots__ = ['x']
     def __init__(self):
         self.x = 1
@@ -52,9 +52,9 @@ def main_seguranca():
     for log in logs_suspeitos:
         try:
             valido = SchemaSecure(**log, timestamp=1711634.0)
-            print(f"✅ Pacote {valido.ip_origem} verificado e limpo.")
+            print(f" Pacote {valido.ip_origem} verificado e limpo.")
         except ValidationError:
-            print(f"❌ BLOQUEIO: Tentativa de injeção de dados inválidos detectada!")
+            print(f" BLOQUEIO: Tentativa de injeção de dados inválidos detectada!")
 
 def main_audit():
     print(f"\n--- [MODO 3]: AUDITORIA FÍSICA (PID: {os.getpid()}) ---")
