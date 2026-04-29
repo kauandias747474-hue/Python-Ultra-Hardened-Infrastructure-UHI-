@@ -14,7 +14,7 @@ class InstantSearch:
     def get_record_by_id(self, sensor_id: int):
       
         if not os.path.exists(self.file_path):
-            print(f"❌ Erro: O arquivo '{self.file_path}' não existe. Rode o main.py primeiro.")
+            print(f" Erro: O arquivo '{self.file_path}' não existe. Rode o main.py primeiro.")
             return None
 
         offset = sensor_id * RECORD_SIZE
